@@ -4,6 +4,10 @@
   @close="$emit('update:open', false)"
   >
     <SideMenuContent />
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
   </SideMenuContainer>
 </template>
 <script>
