@@ -21,15 +21,25 @@
       <b-tab-item label="不在">
         <CardTable :data="absence">
         <button slot-scope="{id}"
-          class="button is-primary"
+          class="button is-danger"
           @click="$store.dispatch('toRemoved', id)">
-          <b-icon icon="trash" size="is-small"></b-icon>
+          <b-icon icon="trash-alt" size="is-small"></b-icon>
         </button>
         </CardTable>
       </b-tab-item>
 
-      <b-tab-item label="x">
-        There is no music in the nightingale.
+      <b-tab-item icon="trash-alt">
+        <template slot="header">
+          <b-icon icon="trash-alt" size="is-small"></b-icon>
+        </template>
+
+        <CardTable :data="removed">
+        <button slot-scope="{id}"
+          class="button is-primary"
+          @click="$store.dispatch('toRemoved', id)">
+          戻す
+        </button>
+        </CardTable>
       </b-tab-item>
 
     </b-tabs>
@@ -49,6 +59,10 @@ export default {
     },
     absence() {
       const cards = this.$store.getters.absence;
+      return cards.map(mapCard);
+    },
+    removed() {
+      const cards = this.$store.getters.removed;
       return cards.map(mapCard);
     }
   },
