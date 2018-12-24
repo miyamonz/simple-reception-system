@@ -3,9 +3,9 @@
     class="container"
     :striped="true"
     :data="data" 
-    :columns="columns" 
     :mobile-cards="false"
     :loading="$store.state.waitingDataSync"
+    :default-sort="['id', 'desc']"
     >
     <template slot-scope="props">
       <b-table-column field="id" label="ID" sortable>
@@ -28,16 +28,6 @@
   </b-table>
 </template>
 <script>
-const columns = [
-  {
-    field: "id",
-    width: "40",
-    numeric: true
-  },
-  {
-    field: "detail"
-  }
-];
 export default {
   props: ["data"],
   methods: {
@@ -52,9 +42,7 @@ export default {
     }
   },
   data() {
-    return {
-      columns
-    };
+    return {};
   }
 };
 </script>

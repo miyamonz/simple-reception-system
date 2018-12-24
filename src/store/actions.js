@@ -22,6 +22,7 @@ export default {
   },
   push: async ({ state }) => {
     state.waitingDataSync = true;
+    await delay(1000);
     // await pushCards(state.cards);
     state.waitingDataSync = false;
   },
@@ -36,6 +37,14 @@ export default {
 
   reset: async ({ commit, dispatch }) => {
     commit("reset");
+    await dispatch("push");
+  },
+
+  addNext: async ({ getters, commit, dispatch }) => {
+    let number = getters.max + 1;
+    let to = "CALLED";
+    commit("set", { number, to });
+
     await dispatch("push");
   }
 };

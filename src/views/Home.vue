@@ -2,6 +2,13 @@
   <div class="home">
     <b-tabs v-model="activeTab" size="is-large" type="is-boxed">
       <b-tab-item label="呼出中">
+        <div class="buttons is-centered"
+            style="margin-top: 20px;"
+          >
+          <button class="button is-rounded is-large is-primary"
+            @click="$store.dispatch('addNext')"
+            >呼出</button>
+        </div>
         <CardTable :data="called"/>
       </b-tab-item>
 
