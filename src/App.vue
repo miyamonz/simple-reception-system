@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <SideMenu :open="sideMenuOpen" />
+    <SideMenu :open.sync="sideMenuOpen" />
+    <input type="checkbox"  v-model="sideMenuOpen"/>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>

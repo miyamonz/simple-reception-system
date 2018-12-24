@@ -1,7 +1,7 @@
 <template>
   <SideMenuContainer
   :open="open"
-  @close="open = false"
+  @close="$emit('update:open', false)"
   >
     <SideMenuContent />
   </SideMenuContainer>
