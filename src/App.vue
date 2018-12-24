@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <SideMenu :open.sync="sideMenuOpen" />
+    <AppHeader />
     <input type="checkbox"  v-model="sideMenuOpen"/>
     <div id="nav">
       <router-link to="/">Home</router-link> |
@@ -12,8 +13,9 @@
 
 <script>
 import SideMenu from "./SideMenu.vue";
+import AppHeader from "./AppHeader.vue";
 export default {
-  components: { SideMenu },
+  components: { SideMenu, AppHeader },
   data() {
     return {
       sideMenuOpen: false
@@ -23,11 +25,5 @@ export default {
 </script>
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
