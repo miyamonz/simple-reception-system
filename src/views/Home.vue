@@ -1,18 +1,15 @@
 <template>
   <div class="home container">
-    <b-table :data="arr" :columns="columns" :mobile-cards="false"></b-table>
+    <b-table 
+      :data="arr" 
+      :columns="columns" 
+      :mobile-cards="false"
+      :loading="$store.state.waitingDataSync"
+      ></b-table>
   </div>
 </template>
 
 <script>
-//prettier-ignore
-const arr = [
-  { 'id': 1, 'first_name': 'Jesse',    },
-  { 'id': 2, 'first_name': 'John',    },
-  { 'id': 3, 'first_name': 'Tina',    },
-  { 'id': 4, 'first_name': 'Clarence',    },
-  { 'id': 5, 'first_name': 'Anne',    }
-]
 const columns = [
   {
     field: "id",
@@ -28,9 +25,17 @@ const columns = [
 export default {
   name: "home",
   components: {},
+  computed: {
+    arr() {
+      const { cards } = this.$store.state;
+      return [...cards].map(([key, val]) => ({
+        id: key,
+        first_name: val
+      }));
+    }
+  },
   data() {
     return {
-      arr,
       columns
     };
   }
