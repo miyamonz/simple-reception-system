@@ -7,6 +7,23 @@
     :mobile-cards="false"
     :loading="$store.state.waitingDataSync"
     >
+    <template slot-scope="props">
+      <b-table-column field="id" label="ID" sortable>
+        <h3 class="title">
+          {{ props.row.id }}
+        </h3>
+      </b-table-column>
+
+    <b-table-column field="detail" label="Detail" style="text-align:right">
+      <button
+        class="button is-medium is-primary"
+        @click="toAbsence(props.row.id)">
+        不在にする
+        {{type(props.row.id)}}
+      </button>
+    </b-table-column>
+
+    </template>
 
   </b-table>
 </template>
@@ -14,17 +31,26 @@
 const columns = [
   {
     field: "id",
-    label: "ID",
     width: "40",
     numeric: true
   },
   {
-    field: "detail",
-    label: "Detail"
+    field: "detail"
   }
 ];
 export default {
   props: ["data"],
+  methods: {
+    type(t) {
+      return t;
+    },
+    toAbsence(id) {
+      this.$snackbar.open({
+        message: `不在にしています${id}`,
+        queue: false
+      });
+    }
+  },
   data() {
     return {
       columns
