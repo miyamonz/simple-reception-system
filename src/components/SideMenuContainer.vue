@@ -21,10 +21,11 @@ export default {
   z-index: 100;
   background: white;
   height: 100vh;
+  transform: translateX(calc(100vw - 100%));
 }
 
 .sidemenu:not(.open) {
-  transform: translateX(-100%);
+  transform: translateX(100vw);
 }
 .back {
   background: #000;

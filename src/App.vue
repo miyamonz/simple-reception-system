@@ -2,7 +2,6 @@
   <div id="app">
     <SideMenu :open.sync="sideMenuOpen" />
     <AppHeader />
-    <input type="checkbox"  v-model="sideMenuOpen"/>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>

@@ -5,7 +5,7 @@
         <h1>管理者画面</h1>
       </a>
 
-      <a role="button" class="navbar-burger" >
+      <a role="button" class="navbar-burger" @click="click" >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -14,4 +14,12 @@
   </nav>
 </template>
 <script>
+export default {
+  methods: {
+    click() {
+      const app = this.$root.$refs.app;
+      app.sideMenuOpen = !app.sideMenuOpen;
+    }
+  }
+};
 </script>
