@@ -77,4 +77,8 @@ export default {
 .tab-content {
   padding: 0 !important;
 }
+.tabs ul li:last-child {
+  position: absolute;
+  right: 3vw;
+}
 </style>
