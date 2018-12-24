@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <SideMenu :open="sideMenuOpen" />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -8,6 +9,17 @@
   </div>
 </template>
 
+<script>
+import SideMenu from "./SideMenu.vue";
+export default {
+  components: { SideMenu },
+  data() {
+    return {
+      sideMenuOpen: false
+    };
+  }
+};
+</script>
 <style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
