@@ -6,14 +6,14 @@
       >
       <button
         class="button is-rounded is-large is-primary"
-        @click="$store.dispatch('addNext')"
+        @click="addNext"
         >呼出</button>
     </div>
     <CardTable :data="called">
       <button
         slot-scope="{id}"
         class="button is-primary"
-        @click="$store.dispatch('toAbsence', id)">
+        @click="toAbsence(id)">
         不在に移動
       </button>
     </CardTable>
@@ -25,6 +25,23 @@ const mapCard = key => ({ id: key });
 
 export default {
   components: { CardTable },
+  methods: {
+    addNext() {
+      this.$store.dispatch("addNext");
+      this.$snackbar.open({
+        message: `追加しました`,
+        duration: 1000,
+        queue: false
+      });
+    },
+    toAbsence(id) {
+      this.$store.dispatch("toAbsence", id);
+      this.$snackbar.open({
+        message: `${id}を不在にしました`,
+        queue: false
+      });
+    }
+  },
   computed: {
     called() {
       const cards = this.$store.getters.called;
