@@ -1,11 +1,25 @@
 <template>
-  <div class="home container">
-    <b-table 
-      :data="arr" 
-      :columns="columns" 
-      :mobile-cards="false"
-      :loading="$store.state.waitingDataSync"
-      ></b-table>
+  <div class="home">
+    <b-tabs v-model="activeTab" size="is-large" type="is-boxed">
+      <b-tab-item label="呼出中">
+        <b-table 
+          class="container"
+          :data="arr" 
+          :columns="columns" 
+          :mobile-cards="false"
+          :loading="$store.state.waitingDataSync"
+        ></b-table>
+      </b-tab-item>
+
+      <b-tab-item label="不在">
+        amet.
+      </b-tab-item>
+
+      <b-tab-item label="x">
+        There is no music in the nightingale.
+      </b-tab-item>
+
+    </b-tabs>
   </div>
 </template>
 
@@ -36,6 +50,7 @@ export default {
   },
   data() {
     return {
+      activeTab: 0,
       columns
     };
   }
