@@ -19,6 +19,14 @@
     </b-table-column>
 
     </template>
+    <template slot="empty">
+      <section class="section">
+        <div v-if="!$store.state.waitingDataSync" class="content has-text-grey has-text-centered">
+          <b-icon icon="surprise" size="is-large"></b-icon>
+          <p>なし</p>
+        </div>
+      </section>
+    </template>
 
   </b-table>
 </template>
@@ -30,10 +38,6 @@ export default {
       return t;
     },
     toAbsence(id) {
-      this.$snackbar.open({
-        message: `不在にしています${id}`,
-        queue: false
-      });
     }
   },
   data() {
