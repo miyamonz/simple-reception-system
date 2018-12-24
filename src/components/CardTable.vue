@@ -36,8 +36,6 @@ export default {
   methods: {
     type(t) {
       return t;
-    },
-    toAbsence(id) {
     }
   },
   data() {
