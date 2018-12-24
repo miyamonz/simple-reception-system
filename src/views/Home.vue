@@ -9,11 +9,23 @@
             @click="$store.dispatch('addNext')"
             >呼出</button>
         </div>
-        <CardTable :data="called"/>
+        <CardTable :data="called">
+        <button slot-scope="{id}"
+          class="button is-primary"
+          @click="$store.dispatch('toAbsence', id)">
+          不在に移動
+        </button>
+        </CardTable>
       </b-tab-item>
 
       <b-tab-item label="不在">
-        <CardTable :data="absence"/>
+        <CardTable :data="absence">
+        <button slot-scope="{id}"
+          class="button is-primary"
+          @click="$store.dispatch('toRemoved', id)">
+          <b-icon icon="trash" size="is-small"></b-icon>
+        </button>
+        </CardTable>
       </b-tab-item>
 
       <b-tab-item label="x">

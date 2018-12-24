@@ -5,7 +5,7 @@
   >
   <div class="container ">
     <div class="">
-    <a v-for="row,i in links" 
+    <a v-for="(row,i) in links" 
       :key="row.to" 
       @click="click(row.to)"
       >
@@ -20,7 +20,7 @@
   </SideMenuContainer>
 </template>
 <script>
-import { SideMenuContainer, SideMenuContent } from "./components";
+import { SideMenuContainer } from "./components";
 
 const links = [
   { to: "/", label: "Home" },
@@ -30,7 +30,7 @@ const links = [
 export default {
   props: ["open"],
   name: "SideMenu",
-  components: { SideMenuContainer, SideMenuContent },
+  components: { SideMenuContainer },
   methods: {
     close() {
       this.$emit("update:open", false);

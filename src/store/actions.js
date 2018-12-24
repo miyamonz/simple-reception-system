@@ -1,5 +1,5 @@
 // import { pullCards, pushCards } from "@/api";
-import { CALLED, ABSENCE } from "./types.js";
+import { CALLED, ABSENCE, REMOVED } from "./types.js";
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 const testData = new Map([
@@ -40,10 +40,19 @@ export default {
     await dispatch("push");
   },
 
+  toAbsence: async ({ commit }, number) => {
+    commit("set", { number, to: ABSENCE });
+  },
+  toCalled: async ({ commit }, number) => {
+    commit("set", { number, to: CALLED });
+  },
+  toRemoved: async ({ commit }, number) => {
+    commit("set", { number, to: REMOVED });
+  },
+
   addNext: async ({ getters, commit, dispatch }) => {
     let number = getters.max + 1;
-    let to = "CALLED";
-    commit("set", { number, to });
+    commit("set", { number, to: CALLED });
 
     await dispatch("push");
   }

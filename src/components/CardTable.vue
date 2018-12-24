@@ -15,12 +15,7 @@
       </b-table-column>
 
     <b-table-column field="detail" label="Detail" style="text-align:right">
-      <button
-        class="button is-medium is-primary"
-        @click="toAbsence(props.row.id)">
-        不在にする
-        {{type(props.row.id)}}
-      </button>
+      <slot :id="props.row.id"></slot>
     </b-table-column>
 
     </template>
