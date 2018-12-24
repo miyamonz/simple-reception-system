@@ -1,7 +1,16 @@
 // import { pullCards, pushCards } from "@/api";
+import { CALLED, ABSENCE } from "./types.js";
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
-const testData = new Map([[1, "HOGE"], [2, "HUG"]]);
+const testData = new Map([
+  [1, CALLED],
+  [2, ABSENCE],
+  [3, ABSENCE],
+  [4, ABSENCE],
+  [5, ABSENCE],
+  [6, ABSENCE],
+  [7, ABSENCE]
+]);
 
 export default {
   init: async ({ state }) => {

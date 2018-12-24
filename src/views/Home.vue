@@ -4,15 +4,16 @@
       <b-tab-item label="呼出中">
         <b-table 
           class="container"
-          :data="arr" 
+          :data="called" 
           :columns="columns" 
           :mobile-cards="false"
           :loading="$store.state.waitingDataSync"
-        ></b-table>
+        >
+
+        </b-table>
       </b-tab-item>
 
       <b-tab-item label="不在">
-        amet.
       </b-tab-item>
 
       <b-tab-item label="x">
@@ -32,19 +33,18 @@ const columns = [
     numeric: true
   },
   {
-    field: "first_name",
-    label: "First Name"
+    field: "detail",
+    label: "Detail"
   }
 ];
 export default {
   name: "home",
   components: {},
   computed: {
-    arr() {
-      const { cards } = this.$store.state;
-      return [...cards].map(([key, val]) => ({
-        id: key,
-        first_name: val
+    called() {
+      const cards = this.$store.getters.called;
+      return cards.map(key => ({
+        id: key
       }));
     }
   },
