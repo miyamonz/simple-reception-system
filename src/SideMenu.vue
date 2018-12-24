@@ -1,24 +1,47 @@
 <template>
   <SideMenuContainer
   :open="open"
-  @close="$emit('update:open', false)"
+  @close="close"
   >
-    <SideMenuContent />
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div class="container ">
+    <div class="">
+    <a v-for="row,i in links" 
+      :key="row.to" 
+      @click="click(row.to)"
+      >
+      <div class="button is-fullwidth is-large" 
+          :class="i%2 && 'is-light'"
+        >
+      {{row.label}}
+      </div>
+    </a>
     </div>
+  </div>
   </SideMenuContainer>
 </template>
 <script>
 import { SideMenuContainer, SideMenuContent } from "./components";
 
+const links = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "about" },
+  { to: "/edit-comment", label: "コメントの編集" }
+];
 export default {
   props: ["open"],
   name: "SideMenu",
   components: { SideMenuContainer, SideMenuContent },
+  methods: {
+    close() {
+      this.$emit("update:open", false);
+    },
+    click(to) {
+      this.$router.push(to);
+      this.close();
+    }
+  },
   data() {
-    return {};
+    return { links };
   }
 };
 /*
@@ -41,5 +64,5 @@ export default {
       this.style.transform = `translateX(0)`;
     }
 
-*/
+ */
 </script>
