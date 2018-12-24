@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SideMenu :open.sync="sideMenuOpen" />
-    <AppHeader />
+    <AppHeader style="position: sticky; top: 0" />
     <router-view/>
   </div>
 </template>
