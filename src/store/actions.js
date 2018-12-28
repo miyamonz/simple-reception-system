@@ -1,14 +1,9 @@
 // import { pullCards, pushCards } from "@/api";
+import axios from "axios";
 const pushCards = async data => {
-  const body = JSON.stringify(data);
-
-  const res = await fetch("/api/index.php", {
-    method: "POST",
-    body
-  });
-  const text = await res.text();
-  console.log(text);
-  return text;
+  const res = await axios.post("/api/index.php", data);
+  console.log(res);
+  return res.data;
 };
 
 import { CALLED, ABSENCE, REMOVED } from "./types.js";
