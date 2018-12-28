@@ -1,35 +1,28 @@
-// import { pullCards, pushCards } from "@/api";
 import axios from "axios";
+
 const pushCards = async data => {
-  const res = await axios.post("/api/index.php", data);
-  console.log(res);
+  const res = await axios.post("/api/", data);
+  console.log(res.statusText, res.data);
   return res.data;
 };
 
-import { CALLED, ABSENCE, REMOVED } from "./types.js";
-const delay = ms => new Promise(res => setTimeout(res, ms));
+const pullCards = async () => {
+  return axios.get("/api/").then(res => res.data);
+};
 
-const testData = new Map([
-  [1, CALLED],
-  [2, ABSENCE],
-  [3, ABSENCE],
-  [4, ABSENCE],
-  [5, ABSENCE],
-  [6, ABSENCE],
-  [7, ABSENCE]
-]);
+import { CALLED, ABSENCE, REMOVED } from "./types.js";
 
 export default {
   init: async ({ state }) => {
     state.waitingDataSync = true;
-    await delay(1000);
-    state.cards = testData;
-    // state.cards = await pullCards();
+    const cards = await pullCards();
+    console.log(cards);
+    state.cards = cards;
     state.waitingDataSync = false;
   },
   push: async ({ state }) => {
     state.waitingDataSync = true;
-    await pushCards(state.cards);
+    await pushCards([...state.cards.entries()]);
     state.waitingDataSync = false;
   },
   set: async ({ commit, dispatch }, payload) => {
