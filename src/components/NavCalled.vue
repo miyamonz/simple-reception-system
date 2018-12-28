@@ -1,5 +1,13 @@
 <template>
   <section>
+    <CardTable :data="called">
+      <button
+        slot-scope="{id}"
+        class="button is-primary"
+        @click="toAbsence(id)">
+        不在に移動
+      </button>
+    </CardTable>
     <div
       class="buttons is-centered"
       style="margin-top: 20px;"
@@ -9,14 +17,6 @@
         @click="addNext"
         >呼出</button>
     </div>
-    <CardTable :data="called">
-      <button
-        slot-scope="{id}"
-        class="button is-primary"
-        @click="toAbsence(id)">
-        不在に移動
-      </button>
-    </CardTable>
   </section>
 </template>
 <script>

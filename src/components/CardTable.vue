@@ -5,7 +5,7 @@
     :data="data" 
     :mobile-cards="false"
     :loading="$store.state.waitingDataSync"
-    :default-sort="['id', 'desc']"
+    :default-sort="['id']"
     >
     <template slot-scope="props">
       <b-table-column field="id" label="ID" sortable>
