@@ -8,10 +8,7 @@ RUN apk --no-cache add \
 
 WORKDIR /app/
 
-VOLUME /app/data
-
 COPY httpd.conf /app/httpd.conf
 COPY data/ /app/data/
-EXPOSE 8080
     
 CMD [ "/usr/sbin/httpd", "-D", "FOREGROUND", "-f", "/app/httpd.conf" ]
