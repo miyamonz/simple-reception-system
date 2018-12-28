@@ -1,4 +1,16 @@
 // import { pullCards, pushCards } from "@/api";
+const pushCards = async data => {
+  const body = JSON.stringify(data);
+
+  const res = await fetch("/api/index.php", {
+    method: "POST",
+    body
+  });
+  const text = await res.text();
+  console.log(text);
+  return text;
+};
+
 import { CALLED, ABSENCE, REMOVED } from "./types.js";
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -22,8 +34,7 @@ export default {
   },
   push: async ({ state }) => {
     state.waitingDataSync = true;
-    await delay(1000);
-    // await pushCards(state.cards);
+    await pushCards(state.cards);
     state.waitingDataSync = false;
   },
   set: async ({ commit, dispatch }, payload) => {
