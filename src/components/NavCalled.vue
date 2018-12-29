@@ -1,6 +1,6 @@
 <template>
   <section>
-    <CardTable :data="$store.getters.called">
+    <CardTable :data="$store.getters.called" style="margin-bottom: 80px">
       <button
         slot-scope="{id}"
         class="button is-primary"
@@ -10,11 +10,11 @@
     </CardTable>
     <div
       class="buttons is-centered"
-      style="margin-top: 20px;"
+      style="position:fixed; bottom: 20px; right: 20px"
       >
       <button
-        class="button is-rounded is-large is-success"
-        style="position:fixed; bottom: 20px; right: 20px"
+        class="button is-rounded is-large is-success "
+        style=" filter: drop-shadow(5px 5px 1px #444);"
         @click="addNext"
         >呼出</button>
     </div>
