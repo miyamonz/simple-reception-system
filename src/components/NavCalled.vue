@@ -13,7 +13,8 @@
       style="margin-top: 20px;"
       >
       <button
-        class="button is-rounded is-large is-primary"
+        class="button is-rounded is-large is-success"
+        style="position:fixed; bottom: 20px; right: 20px"
         @click="addNext"
         >呼出</button>
     </div>

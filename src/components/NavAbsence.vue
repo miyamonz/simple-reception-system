@@ -1,17 +1,17 @@
 <template>
   <CardTable :data="$store.getters.absence">
   <div slot-scope="{id}" >
-  <button
-    class="button is-primary"
-    style="float: left"
-    @click="toCalled(id)">
-    呼出に戻す
-  </button>
-  <button
-    class="button is-danger"
-    @click="toRemoved(id)">
-    <b-icon icon="trash-alt" size="is-small"></b-icon>
-  </button>
+    <button
+       class="button is-primary"
+       style="float: left"
+       @click="toCalled(id)">
+      呼出に戻す
+    </button>
+    <button
+       class="button is-danger"
+       @click="toRemoved(id)">
+      <b-icon icon="trash-alt" size="is-small"></b-icon>
+    </button>
   </div>
   </CardTable>
 </template>
