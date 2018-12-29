@@ -27,7 +27,7 @@ export default {
   methods: {
     addNext() {
       this.$store.dispatch("addNext");
-      this.$snackbar.open({
+      this.$toast.open({
         message: `追加しました`,
         duration: 1000,
         queue: false
@@ -35,7 +35,7 @@ export default {
     },
     toAbsence(id) {
       this.$store.dispatch("toAbsence", id);
-      this.$snackbar.open({
+      this.$toast.open({
         message: `${id}を不在にしました`,
         queue: false
       });

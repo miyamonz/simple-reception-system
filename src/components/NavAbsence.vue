@@ -15,7 +15,7 @@ export default {
   methods: {
     toRemoved(id) {
       this.$store.dispatch("toRemoved", id);
-      this.$snackbar.open({
+      this.$toast.open({
         message: `${id}を削除しました`,
         queue: false
       });
