@@ -7,7 +7,7 @@
     :loading="$store.state.waitingDataSync"
     >
     <template slot-scope="props">
-      <b-table-column field="id" label="ID">
+      <b-table-column field="id" label="ID" width="60">
         <h3 class="title">
           {{ props.row.id }}
         </h3>
