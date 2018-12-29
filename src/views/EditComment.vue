@@ -4,6 +4,7 @@
       <b-field label="コメントの編集">
         <b-input type="textarea" 
           v-model="comment"
+          :disabled="sending || loading"
           :loading="sending || loading"
           rows="10"
           ></b-input>
@@ -23,18 +24,15 @@
 <script>
 export default {
   mounted() {
-    //ここおかしい　mountedはぺーじかえることによばれるから
-    //初期値の問題とかと同時に解決したい
-    this.loading = true;
-    this.$store.watch(
-      state => state.comment,
-      newVal => {
-        this.comment = newVal;
-        this.loading = false;
-      }
-    );
+    this.load();
   },
   methods: {
+    async load() {
+      this.loading = true;
+      await this.$store.dispatch("pull");
+      this.comment = this.$store.state.comment;
+      this.loading = false;
+    },
     async send() {
       this.sending = true;
       await this.$store.dispatch("setComment", this.comment);
@@ -48,7 +46,7 @@ export default {
   },
   data() {
     return {
-      comment: this.$store.state.comment,
+      comment: "",
       loading: false,
       sending: false
     };
