@@ -5,7 +5,7 @@ import actions from "./actions.js";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     // { id: Number, state: string }
     cards: [],
@@ -23,13 +23,6 @@ export default new Vuex.Store({
       }
       state.cards = newCards;
     },
-    /*
-     * そもそも要件的にいらないのでは
-    delete(state, { number }) {
-      const newCards = [...state.cards];
-      state.cards = newCards.filter(c => c.id !== number);
-    },
-    */
     reset(state) {
       state.cards = [];
     }
@@ -37,3 +30,9 @@ export default new Vuex.Store({
   getters,
   actions
 });
+
+store.subscribeAction((action, state) => {
+  console.log({ action, state });
+  if (action.type !== "push" && action.type !== "init") store.dispatch("push");
+});
+export default store;

@@ -26,18 +26,13 @@ export default {
     await pushCards(state);
     state.waitingDataSync = false;
   },
-  set: async ({ commit, dispatch }, payload) => {
+
+  set: async ({ commit }, payload) => {
     commit("set", payload);
-    await dispatch("push");
-  },
-  delete: async ({ commit, dispatch }, payload) => {
-    commit("delete", payload);
-    await dispatch("push");
   },
 
-  reset: async ({ commit, dispatch }) => {
+  reset: async ({ commit }) => {
     commit("reset");
-    await dispatch("push");
   },
 
   toAbsence: async ({ commit }, number) => {
@@ -50,10 +45,8 @@ export default {
     commit("set", { number, to: REMOVED });
   },
 
-  addNext: async ({ getters, commit, dispatch }) => {
-    let number = getters.max + 1;
+  addNext: async ({ getters, commit }) => {
+    const number = getters.max + 1;
     commit("set", { number, to: CALLED });
-
-    await dispatch("push");
   }
 };
