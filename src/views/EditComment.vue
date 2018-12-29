@@ -36,6 +36,7 @@ export default {
     async send() {
       this.sending = true;
       await this.$store.dispatch("setComment", this.comment);
+      this.$toast.open("コメントを更新しました");
       this.sending = false;
     }
   },

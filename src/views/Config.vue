@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="config">
     <h1>設定</h1>
     <button class="button is-primary" @click="isModalActive = true">
       カードの消去
