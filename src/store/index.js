@@ -7,24 +7,31 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    // num:
-    cards: new Map(),
+    // { id: Number, state: string }
+    cards: [],
+    comment: "",
     waitingDataSync: false
   },
   mutations: {
     set(state, { number, to }) {
-      let cards = new Map([...state.cards]);
-      cards.set(number, to);
-      state.cards = cards;
+      const newCards = [...state.cards];
+      const already = newCards.find(c => c.id === number);
+      if (already) {
+        already.state = to;
+      } else {
+        newCards.push({ id: number, state: to });
+      }
+      state.cards = newCards;
     },
+    /*
+     * そもそも要件的にいらないのでは
     delete(state, { number }) {
-      let cards = new Map([...state.cards]);
-      cards.delete(number);
-      state.cards = cards;
+      const newCards = [...state.cards];
+      state.cards = newCards.filter(c => c.id !== number);
     },
+    */
     reset(state) {
-      let cards = new Map([]);
-      state.cards = cards;
+      state.cards = [];
     }
   },
   getters,

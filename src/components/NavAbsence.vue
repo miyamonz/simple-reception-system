@@ -1,5 +1,5 @@
 <template>
-  <CardTable :data="absence">
+  <CardTable :data="$store.getters.absence">
   <button
     slot-scope="{id}"
     class="button is-danger"
@@ -10,7 +10,6 @@
 </template>
 <script>
 import CardTable from "@/components/CardTable.vue";
-const mapCard = key => ({ id: key });
 export default {
   components: { CardTable },
   methods: {
@@ -21,17 +20,6 @@ export default {
         queue: false
       });
     }
-  },
-  computed: {
-    absence() {
-      const cards = this.$store.getters.absence;
-      return cards.map(mapCard);
-    }
-  },
-  data() {
-    return {
-      activeTab: 0
-    };
   }
 };
 </script>

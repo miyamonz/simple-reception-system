@@ -1,6 +1,6 @@
 <template>
   <section>
-    <CardTable :data="called">
+    <CardTable :data="$store.getters.called">
       <button
         slot-scope="{id}"
         class="button is-primary"
@@ -21,7 +21,6 @@
 </template>
 <script>
 import CardTable from "@/components/CardTable.vue";
-const mapCard = key => ({ id: key });
 
 export default {
   components: { CardTable },
@@ -41,17 +40,6 @@ export default {
         queue: false
       });
     }
-  },
-  computed: {
-    called() {
-      const cards = this.$store.getters.called;
-      return cards.map(mapCard);
-    }
-  },
-  data() {
-    return {
-      activeTab: 0
-    };
   }
 };
 </script>

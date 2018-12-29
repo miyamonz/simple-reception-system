@@ -16,14 +16,14 @@ import { CALLED, ABSENCE, REMOVED } from "./types.js";
 export default {
   init: async ({ state }) => {
     state.waitingDataSync = true;
-    const cards = await pullCards();
-    console.log(cards);
-    state.cards = cards;
+    const data = await pullCards();
+    console.log(data);
+    Object.assign(state, data);
     state.waitingDataSync = false;
   },
   push: async ({ state }) => {
     state.waitingDataSync = true;
-    await pushCards([...state.cards.entries()]);
+    await pushCards(state);
     state.waitingDataSync = false;
   },
   set: async ({ commit, dispatch }, payload) => {

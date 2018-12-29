@@ -1,5 +1,5 @@
 <template>
-  <CardTable :data="removed">
+  <CardTable :data="$store.getters.removed">
     <button slot-scope="{id}"
       class="button is-primary"
       @click="$store.dispatch('toRemoved', id)">
@@ -9,14 +9,7 @@
 </template>
 <script>
 import CardTable from "@/components/CardTable.vue";
-const mapCard = key => ({ id: key });
 export default {
   components: { CardTable },
-  computed: {
-    removed() {
-      const cards = this.$store.getters.removed;
-      return cards.map(mapCard);
-    }
-  }
 };
 </script>

@@ -2,13 +2,11 @@ import { CALLED, ABSENCE, REMOVED } from "./types";
 
 /*  eslint-disable no-unused-vars */
 export default {
-  filterByValue: state => val => {
-    return [...state.cards]
-      .filter(([_, _val]) => _val === val)
-      .map(([key, val]) => key);
+  filterState: state => val => {
+    return state.cards.filter(({ state }) => val === state);
   },
   numbers: state => {
-    return [...state.cards].map(([key, val]) => key);
+    return state.cards.map(({ id }) => id);
   },
   max: (state, { numbers }) => {
     return numbers.reduce((a, b) => (a > b ? a : b), 0);
@@ -18,12 +16,12 @@ export default {
     return Math.max(...numbers);
   },
   called(state, getters) {
-    return getters.filterByValue(CALLED);
+    return getters.filterState(CALLED);
   },
   absence(state, getters) {
-    return getters.filterByValue(ABSENCE);
+    return getters.filterState(ABSENCE);
   },
   removed(state, getters) {
-    return getters.filterByValue(REMOVED);
+    return getters.filterState(REMOVED);
   }
 };
