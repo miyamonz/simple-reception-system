@@ -1,29 +1,16 @@
-import axios from "axios";
-
-const pushCards = async data => {
-  const res = await axios.post("/api/", data);
-  console.log(res.statusText, res.data);
-  return res.data;
-};
-
-const pullCards = async () => {
-  const ts = Math.floor(new Date().getTime() / 1000);
-  return axios.get(`/api/?timestamp=${ts}`).then(res => res.data);
-};
-
+import { pushState, pullState } from "@/api";
 import { CALLED, ABSENCE, REMOVED } from "./types.js";
 
 export default {
-  init: async ({ state }) => {
+  pull: async ({ state }) => {
     state.waitingDataSync = true;
-    const data = await pullCards();
-    console.log(data);
+    const data = await pullState();
     Object.assign(state, data);
     state.waitingDataSync = false;
   },
   push: async ({ state }) => {
     state.waitingDataSync = true;
-    await pushCards(state);
+    await pushState(state);
     state.waitingDataSync = false;
   },
 

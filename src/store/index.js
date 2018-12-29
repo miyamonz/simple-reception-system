@@ -37,6 +37,7 @@ const store = new Vuex.Store({
 
 store.subscribeAction((action, state) => {
   console.log({ action, state });
-  if (action.type !== "push" && action.type !== "init") store.dispatch("push");
+  if (action.type !== "push" && action.type !== "pull") store.dispatch("push");
 });
+
 export default store;

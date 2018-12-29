@@ -12,8 +12,11 @@ Vue.directive("sortable", sortable);
 
 Vue.config.productionTip = false;
 
-new Vue({
-  store,
-  router,
-  render: h => h(App, { ref: "app" })
-}).$mount("#app");
+(async () => {
+  await store.dispatch("pull");
+  new Vue({
+    store,
+    router,
+    render: h => h(App, { ref: "app" })
+  }).$mount("#app");
+})();
