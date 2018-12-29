@@ -44,25 +44,4 @@ export default {
     return { links };
   }
 };
-/*
-  watch: {
-    open(e) {
-      if (e) this.onOpen();
-      else this.onClose();
-    }
-  },
-    getWidth() {
-      let cs = getComputedStyle(this.$refs.sidemenu);
-      return cs.width;
-    }
-    onOpen() {
-      this.style.transition = `transform 0.5s`;
-      this.style.transform = `translateX(${this.getWidth()})`;
-    },
-    onClose() {
-      this.style.transition = `transform 0.5s`;
-      this.style.transform = `translateX(0)`;
-    }
-
- */
 </script>
