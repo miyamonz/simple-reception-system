@@ -11,13 +11,13 @@
       </b-field>
       <div class="buttons is-right">
         <button 
+          v-if="!loading && isChange"
           class="button is-primary"
           :class=" sending && 'is-loading'"
           :disabled="!isChange"
           @click="send"
           >送信</button>
       </div>
-      <span v-if="isChange">変更あり</span>
     </div>
   </div>
 </template>
