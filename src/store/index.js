@@ -25,6 +25,9 @@ const store = new Vuex.Store({
     },
     reset(state) {
       state.cards = [];
+    },
+    setComment(state, comment) {
+      state.comment = comment;
     }
   },
   getters,

@@ -48,5 +48,9 @@ export default {
   addNext: async ({ getters, commit }) => {
     const number = getters.max + 1;
     commit("set", { number, to: CALLED });
+  },
+
+  setComment: async ({ commit }, c) => {
+    commit("setComment", c);
   }
 };
