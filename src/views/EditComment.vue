@@ -1,14 +1,15 @@
 <template>
   <div id="edit-comment" >
     <div class="column">
-      <b-field label="コメントの編集">
-        <b-input type="textarea" 
-          v-model="comment"
-          :disabled="sending || loading"
-          :loading="sending || loading"
-          rows="10"
-          ></b-input>
-      </b-field>
+      <h2 class="title">コメントの編集</h2>
+      <b-input
+        type="textarea" 
+        v-model="comment"
+        :disabled="sending || loading"
+        :loading="sending || loading"
+        rows="10"
+        >
+      </b-input>
       <div class="buttons is-right">
         <button 
           v-if="!loading && isChange"
