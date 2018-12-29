@@ -14,9 +14,11 @@ import ModalDeleteCards from "@/components/ModalDeleteCards.vue";
 export default {
   components: { ModalDeleteCards },
   methods: {
-    run() {
+    async run() {
       this.isModalActive = false;
       console.log("run");
+      await this.$store.dispatch("reset");
+      this.$toast.open("カードを消去しました");
     }
   },
   data() {
