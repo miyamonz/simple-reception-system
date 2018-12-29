@@ -5,7 +5,10 @@ import router from "./router";
 
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
+import sortable from "./sortable.js";
+
 Vue.use(Buefy, { defaultIconPack: "fa" });
+Vue.directive("sortable", sortable);
 
 Vue.config.productionTip = false;
 

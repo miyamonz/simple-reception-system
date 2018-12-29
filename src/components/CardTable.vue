@@ -5,7 +5,7 @@
     :data="data" 
     :mobile-cards="false"
     :loading="$store.state.waitingDataSync"
-    :default-sort="['id']"
+    v-sortable="{chosenClass: 'is-selected'}"
     >
     <template slot-scope="props">
       <b-table-column field="id" label="ID" sortable>

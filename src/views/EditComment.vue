@@ -2,7 +2,11 @@
   <div id="edit-comment" >
     <div class="column">
       <b-field label="コメントの編集">
-        <b-input type="textarea" v-model="comment"></b-input>
+        <b-input type="textarea" 
+          v-model="comment"
+          :loading="sending || loading"
+          rows="10"
+          ></b-input>
       </b-field>
       <div class="buttons is-right">
         <button 
@@ -19,6 +23,9 @@
 <script>
 export default {
   mounted() {
+    //ここおかしい　mountedはぺーじかえることによばれるから
+    //初期値の問題とかと同時に解決したい
+    this.loading = true;
     this.$store.watch(
       state => state.comment,
       newVal => {
@@ -42,7 +49,7 @@ export default {
   data() {
     return {
       comment: this.$store.state.comment,
-      loading: true,
+      loading: false,
       sending: false
     };
   }
