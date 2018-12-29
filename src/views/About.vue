@@ -5,7 +5,7 @@
       カードの消去
     </button>
     <b-modal :active.sync="isModalActive" has-modal-card>
-      <ModalDeleteCards />
+      <ModalDeleteCards @run="run"/>
     </b-modal>
   </div>
 </template>
@@ -13,6 +13,12 @@
 import ModalDeleteCards from "@/components/ModalDeleteCards.vue";
 export default {
   components: { ModalDeleteCards },
+  methods: {
+    run() {
+      this.isModalActive = false;
+      console.log("run");
+    }
+  },
   data() {
     return { isModalActive: false };
   }

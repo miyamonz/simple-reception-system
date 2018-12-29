@@ -9,7 +9,9 @@
     <footer class="modal-card-foot">
       <button class="button" 
          @click="$parent.close()">キャンセル</button>
-      <button class="button is-danger">消去の実行</button>
+      <button class="button is-danger"
+          @click="$emit('run')"
+        >消去の実行</button>
     </footer>
   </div>
 </template>
