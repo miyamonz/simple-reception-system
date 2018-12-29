@@ -7,7 +7,8 @@ const pushCards = async data => {
 };
 
 const pullCards = async () => {
-  return axios.get("/api/").then(res => res.data);
+  const ts = Math.floor(new Date().getTime() / 1000);
+  return axios.get(`/api/?timestamp=${ts}`).then(res => res.data);
 };
 
 import { CALLED, ABSENCE, REMOVED } from "./types.js";
