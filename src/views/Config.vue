@@ -1,9 +1,11 @@
 <template>
   <div class="config">
-    <h1>設定</h1>
-    <button class="button is-primary" @click="click">
-      カードの消去
-    </button>
+    <section class="section">
+      <h2 class="title">設定</h2>
+      <button class="button is-primary" @click="click">
+        カードの消去
+      </button>
+    </section>
   </div>
 </template>
 <script>
