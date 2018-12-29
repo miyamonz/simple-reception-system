@@ -1,4 +1,7 @@
 <?php
+if(getenv('APP_ENV') === 'development'){
+	sleep(1);
+}
 $json_string = file_get_contents('php://input');
 
 $file = 'data.json';
