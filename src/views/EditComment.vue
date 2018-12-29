@@ -5,8 +5,10 @@
         <b-input type="textarea" v-model="comment"></b-input>
       </b-field>
       <div class="buttons is-right">
-        <button class="button is-primary"
+        <button 
+          class="button is-primary"
           :class=" sending && 'is-loading'"
+          :disabled="!isChange"
           @click="send"
           >送信</button>
       </div>
@@ -16,6 +18,15 @@
 </template>
 <script>
 export default {
+  mounted() {
+    this.$store.watch(
+      state => state.comment,
+      newVal => {
+        this.comment = newVal;
+        this.loading = false;
+      }
+    );
+  },
   methods: {
     async send() {
       this.sending = true;
@@ -27,15 +38,6 @@ export default {
     isChange() {
       return this.comment !== this.$store.state.comment;
     }
-  },
-  mounted() {
-    this.$store.watch(
-      state => state.comment,
-      newVal => {
-        this.comment = newVal;
-        this.loading = false;
-      }
-    );
   },
   data() {
     return {

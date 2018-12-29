@@ -6,6 +6,7 @@ import actions from "./actions.js";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
+  //外でpullしてここにいれるといいかもしれない
   state: {
     // { id: Number, state: string }
     cards: [],
