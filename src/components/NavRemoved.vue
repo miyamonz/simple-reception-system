@@ -10,6 +10,6 @@
 <script>
 import CardTable from "@/components/CardTable.vue";
 export default {
-  components: { CardTable },
+  components: { CardTable }
 };
 </script>
