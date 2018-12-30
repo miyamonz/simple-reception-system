@@ -4,6 +4,11 @@
       <button
          class="button is-rounded is-large is-success "
          style=" filter: drop-shadow(5px 5px 1px #444);"
+         @click="callPrev()"
+         >戻す</button>
+      <button
+         class="button is-rounded is-large is-success "
+         style=" filter: drop-shadow(5px 5px 1px #444);"
          @click="callNext()"
          >進める</button>
     </div>
@@ -12,6 +17,15 @@
 <script>
 export default {
   methods: {
+    async callPrev() {
+      await this.$store.dispatch("callPrev");
+      let { calling } = this.$store.state;
+      this.$toast.open({
+        message: `戻しました`,
+        duration: 3000,
+        queue: false
+      });
+    },
     async callNext() {
       await this.$store.dispatch("callNext");
       let { calling } = this.$store.state;

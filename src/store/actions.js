@@ -47,6 +47,12 @@ export default {
       if (i > 200) throw new Error("while loop");
     }
   },
+  callPrev({ dispatch, getters, commit }) {
+    const available = getters.doneCalling;
+    if (available.length === 0) return;
+    commit("setCalling", available[available.length - 1].id);
+    dispatch("fillCards");
+  },
   callNext({ dispatch, getters, commit }) {
     const available = getters.willCalling;
     if (available.length === 0) return;
