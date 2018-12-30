@@ -15,7 +15,7 @@ export default {
     if (numbers.length === 0) return 0;
     return Math.max(...numbers);
   },
-  called(state, getters) {
+  waiting(state, getters) {
     return getters.filterState(CALLED);
   },
   absence(state, getters) {
@@ -24,7 +24,7 @@ export default {
   removed(state, getters) {
     return getters.filterState(REMOVED);
   },
-  willCalling(state, { called }) {
-    return called.filter(c => c.id > state.calling);
+  willCalling(state, { waiting }) {
+    return waiting.filter(c => c.id > state.calling);
   }
 };

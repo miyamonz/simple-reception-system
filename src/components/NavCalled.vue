@@ -1,6 +1,6 @@
 <template>
   <section>
-    <CardTable :data="$store.getters.called" style="margin-bottom: 80px">
+    <CardTable :data="$store.getters.waiting" style="margin-bottom: 80px">
       <div slot-scope="{id}" >
         <span class="tag is-warning is-rounded is-large" v-if="id === $store.state.calling">呼出中</span>
         <button
