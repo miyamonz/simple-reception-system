@@ -1,34 +1,34 @@
 <template>
-  <b-table 
-    class="container"
-    :striped="true"
-    :data="data" 
-    :mobile-cards="false"
-    :loading="$store.state.waitingDataSync"
-    >
-    <template slot-scope="props">
-      <b-table-column field="id" label="ID" width="65">
-        <h3 class="title">
-          {{ props.row.id }}
-        </h3>
-      </b-table-column>
+  <div>
+    <draggable v-if="list.length !== 0" :options="{animation:80, handle:'.handle'}" 
+      v-model="list" 
+      element="table" 
+      class=" container table is-fullwidth">
+      <transition-group tag="tbody">
+        <tr v-for="e in list" :key="e.id" >
+          <td class="handle">
+            :::
+          </td>
+          <td class="cell-id">
+            <h3 class="title">{{ e.id }}</h3>
+          </td>
+          <td style="text-align:right">
+            <slot :id="e.id"></slot>
+          </td>
+        </tr>
+      </transition-group>
+    </draggable>
 
-      <b-table-column field="detail" label="Detail" 
-        style="text-align:right">
-        <slot :id="props.row.id"></slot>
-      </b-table-column>
-    </template>
-
-    <template slot="empty">
+    <div v-else>
       <section class="section">
         <div v-if="!$store.state.waitingDataSync" class="content has-text-grey has-text-centered">
           <b-icon icon="surprise" size="is-large"></b-icon>
           <p>なし</p>
         </div>
       </section>
-    </template>
+    </div>
 
-  </b-table>
+  </div>
 </template>
 <script>
 export default {
@@ -39,16 +39,19 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      list: this.data
+    };
   }
 };
 </script>
-<style>
-.table thead {
-  visibility: hidden;
+<style lang="scss" scoped>
+.sortable-ghost {
+  background: rgba($primary, 0.4);
 }
-.table thead tr * {
-  padding: 0;
-  height: 10px;
+.handle {
+}
+.cell-id {
+  min-width: 50px;
 }
 </style>

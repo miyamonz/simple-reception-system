@@ -5,9 +5,11 @@ import router from "./router";
 
 import Buefy from "buefy";
 import sortable from "./sortable.js";
+import draggable from "vuedraggable";
 
 Vue.use(Buefy, { defaultIconPack: "fa" });
 Vue.directive("sortable", sortable);
+Vue.component("draggable", draggable);
 
 Vue.config.productionTip = false;
 
