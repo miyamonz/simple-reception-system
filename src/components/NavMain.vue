@@ -2,7 +2,7 @@
   <section>
     <CardTable :cards.sync="cards"  class="bottom-offset">
       <div slot-scope="{id}" >
-        <span class="tag is-warning is-rounded is-large" v-if="id === $store.state.calling">呼出中</span>
+        <span class="tag is-danger is-rounded is-large" v-if="id === $store.state.calling">呼出中</span>
         <button
           v-if="$store.getters.doneCalling.some(c => c.id === id)"
           class="button"

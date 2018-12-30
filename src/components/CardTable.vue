@@ -51,6 +51,6 @@ export default {
   background: rgba($primary, 0.4);
 }
 .item-calling {
-  background: rgba($warning, 0.4);
+  background: rgba($danger, 0.2);
 }
 </style>

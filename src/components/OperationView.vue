@@ -2,12 +2,12 @@
   <div class="operation-view" >
     <div class="buttons is-centered">
       <button
-         class="button is-rounded is-large is-success "
+         class="button is-rounded is-large is-danger is-inverted "
          style=" filter: drop-shadow(5px 5px 1px #444);"
          @click="callPrev()"
          >戻す</button>
       <button
-         class="button is-rounded is-large is-success "
+         class="button is-rounded is-large is-danger "
          style=" filter: drop-shadow(5px 5px 1px #444);"
          @click="callNext()"
          >進める</button>
@@ -19,7 +19,6 @@ export default {
   methods: {
     async callPrev() {
       await this.$store.dispatch("callPrev");
-      let { calling } = this.$store.state;
       this.$toast.open({
         message: `戻しました`,
         duration: 3000,
@@ -40,7 +39,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .operation-view {
-  background: rgba($primary, 0.35);
+  background: rgba($dark, 0.15);
 }
 
 .buttons {

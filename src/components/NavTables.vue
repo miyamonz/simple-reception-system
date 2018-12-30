@@ -61,7 +61,7 @@ export default {
 
 .badge {
   &.badge-enter {
-    background-color: $warning;
+    background-color: $primary;
   }
   &.badge-enter-to {
   }
