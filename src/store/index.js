@@ -8,7 +8,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   //外でpullしてここにいれるといいかもしれない
   state: {
-    // { id: Number, state: string }
+    // { id: Number }
     cards: {
       main: [],
       absence: [],
@@ -22,12 +22,18 @@ const store = new Vuex.Store({
     set(state, { number, to }) {
       const toLow = to.toLowerCase();
 
-      const already = state.cards[toLow].find(c => c.id === number);
-      if (already) {
-        already.state = to;
-      } else {
-        state.cards[toLow].push({ id: number, state: to });
+      const cardKeys = Object.keys(state.cards);
+      const existKey = cardKeys.find(key =>
+        state.cards[key].some(c => c.id === number)
+      );
+
+      if (existKey) {
+        //remove
+        state.cards[existKey] = state.cards[existKey].filter(
+          c => c.id !== number
+        );
       }
+      state.cards[toLow].push({ id: number });
     },
     reset(state) {
       state.cards = {
