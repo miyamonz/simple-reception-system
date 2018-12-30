@@ -14,10 +14,6 @@ export default {
     state.waitingDataSync = false;
   },
 
-  set: async ({ commit }, payload) => {
-    commit("set", payload);
-  },
-
   reset: async ({ commit, dispatch }) => {
     commit("reset");
     await dispatch("fillCards");

@@ -20,14 +20,14 @@ const store = new Vuex.Store({
   },
   mutations: {
     set(state, { number, to }) {
-      const newCards = [...state.cards];
-      const already = newCards.find(c => c.id === number);
+      const toLow = to.toLowerCase();
+
+      const already = state.cards[toLow].find(c => c.id === number);
       if (already) {
         already.state = to;
       } else {
-        newCards.push({ id: number, state: to });
+        state.cards[toLow].push({ id: number, state: to });
       }
-      state.cards = newCards;
     },
     reset(state) {
       state.cards = {
@@ -36,6 +36,9 @@ const store = new Vuex.Store({
         done: []
       };
       state.calling = 0;
+    },
+    setCardsToMain(state, cards) {
+      state.cards.main = cards;
     },
     setComment(state, comment) {
       state.comment = comment;

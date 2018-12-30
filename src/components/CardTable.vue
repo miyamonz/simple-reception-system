@@ -44,8 +44,8 @@ export default {
       get() {
         return this.cards;
       },
-      set(val) {
-        console.log(val);
+      set(arr) {
+        this.$store.commit("setCardsToMain", arr);
       }
     }
   },
