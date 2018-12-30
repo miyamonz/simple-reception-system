@@ -5,7 +5,9 @@
       element="table" 
       class=" container table is-fullwidth">
       <transition-group tag="tbody">
-        <tr v-for="e in list" :key="e.id" >
+        <tr v-for="e in list" :key="e.id" 
+          class="item"
+          :class="e.id === $store.state.calling && 'item-calling'">
           <td class="handle">
             :::
           </td>
@@ -50,8 +52,15 @@ export default {
   background: rgba($primary, 0.4);
 }
 .handle {
+  width: 50px;
 }
 .cell-id {
-  min-width: 50px;
+  width: 50px;
+}
+.item {
+  transition: all 0.5s;
+}
+.item-calling {
+  background: rgba($warning, 0.4);
 }
 </style>
