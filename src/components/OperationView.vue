@@ -1,12 +1,12 @@
 <template>
-  <div
-    class="operation-view buttons is-centered"
-    >
-    <button
-    class="button is-rounded is-large is-success "
-    style=" filter: drop-shadow(5px 5px 1px #444);"
-    @click="callNext()"
-    >進める</button>
+  <div class="operation-view" >
+    <div class="buttons is-centered">
+      <button
+         class="button is-rounded is-large is-success "
+         style=" filter: drop-shadow(5px 5px 1px #444);"
+         @click="callNext()"
+         >進める</button>
+    </div>
   </div>
 </template>
 <script>
@@ -24,3 +24,12 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.operation-view {
+  background: rgba($primary, 0.35);
+}
+
+.buttons {
+  height: 100%;
+}
+</style>

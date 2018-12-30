@@ -13,7 +13,7 @@ export default {
   props: ["menus"]
 };
 </script>
-<style>
+<style scoped>
 .menu {
   position: relative;
   height: 80px;

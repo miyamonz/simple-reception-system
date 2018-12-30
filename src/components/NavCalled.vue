@@ -1,6 +1,6 @@
 <template>
   <section>
-    <CardTable :data="$store.getters.waiting" style="margin-bottom: 80px">
+    <CardTable :data="$store.getters.waiting" class="bottom-offset">
       <div slot-scope="{id}" >
         <span class="tag is-warning is-rounded is-large" v-if="id === $store.state.calling">呼出中</span>
         <button
@@ -11,7 +11,7 @@
         </button>
       </div>
     </CardTable>
-    <OperationView class="_fix-bottom" />
+    <OperationView class="fix-bottom" />
   </section>
 </template>
 <script>
@@ -32,11 +32,15 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.bottom-offset {
+  margin-bottom: $operation-view-height;
+}
+
 .fix-bottom {
   position: fixed;
-  bottom: 0;
+  bottom: $tab-height;
   width: 100vw;
-  height: 40vw;
+  height: $operation-view-height;
 }
 </style>
