@@ -18,8 +18,9 @@ export default {
     commit("set", payload);
   },
 
-  reset: async ({ commit }) => {
+  reset: async ({ commit, dispatch }) => {
     commit("reset");
+    await dispatch("fillCards");
   },
 
   toAbsence: async ({ commit }, number) => {
@@ -40,9 +41,20 @@ export default {
   setComment: async ({ commit }, c) => {
     commit("setComment", c);
   },
-  callNext({ commit, getters }) {
+  fillCards: async ({ dispatch, getters }) => {
+    let i = 0;
+    let { willCalling } = getters;
+    while (willCalling.length <= 3) {
+      await dispatch("addNext");
+      willCalling = getters.willCalling;
+      i++;
+      if (i > 200) throw new Error("while loop");
+    }
+  },
+  callNext({ dispatch, getters, commit }) {
     const available = getters.willCalling;
     if (available.length === 0) return;
     commit("setCalling", available[0].id);
+    dispatch("fillCards");
   }
 };
