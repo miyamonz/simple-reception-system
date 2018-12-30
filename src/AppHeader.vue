@@ -2,7 +2,7 @@
   <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" >
-        <h1>管理者画面</h1>
+        <h1 class="title" style="color:white;">管理者画面</h1>
       </a>
 
       <a role="button" class="navbar-burger" @click="click" >
