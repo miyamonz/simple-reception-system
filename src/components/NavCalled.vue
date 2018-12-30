@@ -8,32 +8,16 @@
         不在に移動
       </button>
     </CardTable>
-    <div
-      class="buttons is-centered"
-      style="position:fixed; bottom: 20px; right: 20px"
-      >
-      <button
-        class="button is-rounded is-large is-success "
-        style=" filter: drop-shadow(5px 5px 1px #444);"
-        @click="addNext"
-        >配布</button>
-    </div>
+    <OperationView />
   </section>
 </template>
 <script>
 import CardTable from "@/components/CardTable.vue";
+import OperationView from "@/components/OperationView.vue";
 
 export default {
-  components: { CardTable },
+  components: { CardTable, OperationView },
   methods: {
-    addNext() {
-      this.$store.dispatch("addNext");
-      this.$toast.open({
-        message: `追加しました`,
-        duration: 1000,
-        queue: false
-      });
-    },
     toAbsence(id) {
       this.$store.dispatch("toAbsence", id);
       this.$toast.open({
