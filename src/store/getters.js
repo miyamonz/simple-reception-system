@@ -23,5 +23,8 @@ export default {
   },
   removed(state, getters) {
     return getters.filterState(REMOVED);
+  },
+  willCalling(state, { called }) {
+    return called.filter(c => c.id > state.calling);
   }
 };

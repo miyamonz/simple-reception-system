@@ -39,5 +39,10 @@ export default {
 
   setComment: async ({ commit }, c) => {
     commit("setComment", c);
+  },
+  callNext({ commit, getters }) {
+    const available = getters.willCalling;
+    if (available.length === 0) return;
+    commit("setCalling", available[0].id);
   }
 };
