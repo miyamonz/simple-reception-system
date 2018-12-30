@@ -1,6 +1,6 @@
 <template>
   <section>
-    <CardTable :data="$store.state.cards.main" class="bottom-offset">
+    <CardTable :cards="$store.state.cards.main" class="bottom-offset">
       <div slot-scope="{id}" >
         <span class="tag is-warning is-rounded is-large" v-if="id === $store.state.calling">呼出中</span>
         <button

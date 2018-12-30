@@ -34,11 +34,15 @@
 </template>
 <script>
 export default {
-  props: ["data"],
+  props: {
+    cards: {
+      type: Array
+    }
+  },
   computed: {
     list: {
       get() {
-        return this.data;
+        return this.cards;
       },
       set(val) {
         console.log(val);

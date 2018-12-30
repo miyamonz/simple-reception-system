@@ -1,5 +1,5 @@
 <template>
-  <CardTable :data="$store.getters.removed">
+  <CardTable :cards="$store.state.cards.done">
     <button slot-scope="{id}"
       class="button is-primary"
       @click="$store.dispatch('toRemoved', id)">

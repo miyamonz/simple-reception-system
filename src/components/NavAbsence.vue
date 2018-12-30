@@ -1,5 +1,5 @@
 <template>
-  <CardTable :data="$store.getters.absence">
+  <CardTable :cards="$store.state.cards.absence">
   <div slot-scope="{id}" >
     <button
        class="button is-primary"
