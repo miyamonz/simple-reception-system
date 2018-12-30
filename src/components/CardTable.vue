@@ -40,7 +40,9 @@ export default {
       get() {
         return this.data;
       },
-      set(val) {}
+      set(val) {
+        console.log(val);
+      }
     }
   },
   data() {

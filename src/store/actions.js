@@ -1,5 +1,5 @@
 import { pushState, pullState } from "@/api";
-import { CALLED, ABSENCE, REMOVED } from "./types.js";
+import { MAIN, ABSENCE, DONE } from "./types.js";
 
 export default {
   pull: async ({ state }) => {
@@ -26,16 +26,16 @@ export default {
   toAbsence: async ({ commit }, number) => {
     commit("set", { number, to: ABSENCE });
   },
-  toCalled: async ({ commit }, number) => {
-    commit("set", { number, to: CALLED });
+  toMain: async ({ commit }, number) => {
+    commit("set", { number, to: MAIN });
   },
-  toRemoved: async ({ commit }, number) => {
-    commit("set", { number, to: REMOVED });
+  toDone: async ({ commit }, number) => {
+    commit("set", { number, to: DONE });
   },
 
   addNext: async ({ getters, commit }) => {
     const number = getters.max + 1;
-    commit("set", { number, to: CALLED });
+    commit("set", { number, to: MAIN });
   },
 
   setComment: async ({ commit }, c) => {

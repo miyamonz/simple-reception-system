@@ -1,3 +1,3 @@
-export const CALLED = "CALLED";
+export const MAIN = "MAIN";
 export const ABSENCE = "ABSENCE";
-export const REMOVED = "REMOVED";
+export const DONE = "DONE";

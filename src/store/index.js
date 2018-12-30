@@ -9,7 +9,11 @@ const store = new Vuex.Store({
   //外でpullしてここにいれるといいかもしれない
   state: {
     // { id: Number, state: string }
-    cards: [],
+    cards: {
+      main: [],
+      absence: [],
+      done: []
+    },
     calling: 0,
     comment: "",
     waitingDataSync: false
@@ -26,7 +30,11 @@ const store = new Vuex.Store({
       state.cards = newCards;
     },
     reset(state) {
-      state.cards = [];
+      state.cards = {
+        main: [],
+        absence: [],
+        done: []
+      };
       state.calling = 0;
     },
     setComment(state, comment) {
