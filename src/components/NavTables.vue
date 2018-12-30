@@ -1,6 +1,6 @@
 <template>
   <b-tabs v-model="activeTab" size="is-large" type="is-boxed">
-    <b-tab-item label="呼出中">
+    <b-tab-item label="配布中">
       <NavCalled/>
     </b-tab-item>
 

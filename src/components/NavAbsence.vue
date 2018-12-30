@@ -5,7 +5,7 @@
        class="button is-primary"
        style="float: left"
        @click="toCalled(id)">
-      呼出に戻す
+      配布に戻す
     </button>
     <button
        class="button is-danger"
@@ -23,7 +23,7 @@ export default {
     toCalled(id) {
       this.$store.dispatch("toCalled", id);
       this.$toast.open({
-        message: `${id}を呼出に戻しました`,
+        message: `${id}を配布に戻しました`,
         queue: false
       });
     },

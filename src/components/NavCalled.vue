@@ -16,7 +16,7 @@
         class="button is-rounded is-large is-success "
         style=" filter: drop-shadow(5px 5px 1px #444);"
         @click="addNext"
-        >呼出</button>
+        >配布</button>
     </div>
   </section>
 </template>
