@@ -35,15 +35,16 @@
 <script>
 export default {
   props: ["data"],
-  methods: {
-    type(t) {
-      return t;
+  computed: {
+    list: {
+      get() {
+        return this.data;
+      },
+      set(val) {}
     }
   },
   data() {
-    return {
-      list: this.data
-    };
+    return {};
   }
 };
 </script>
