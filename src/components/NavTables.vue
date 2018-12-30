@@ -1,7 +1,7 @@
 <template>
   <b-tabs v-model="activeTab" size="is-large" type="is-toggle" expanded>
     <b-tab-item label="配布中">
-      <NavCalled/>
+      <NavMain/>
     </b-tab-item>
 
     <b-tab-item label="不在">
@@ -17,12 +17,12 @@
   </b-tabs>
 </template>
 <script>
-import NavCalled from "@/components/NavCalled.vue";
+import NavMain from "@/components/NavMain.vue";
 import NavAbsence from "@/components/NavAbsence.vue";
 import NavRemoved from "@/components/NavRemoved.vue";
 export default {
   name: "NavTables",
-  components: { NavCalled, NavAbsence, NavRemoved },
+  components: { NavMain, NavAbsence, NavRemoved },
   computed: {},
   data() {
     return {
