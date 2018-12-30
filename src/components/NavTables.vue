@@ -12,17 +12,17 @@
       <template slot="header">
         <b-icon icon="trash-alt" size="is-small"></b-icon>
       </template>
-      <NavRemoved/>
+      <NavDone/>
     </b-tab-item>
   </b-tabs>
 </template>
 <script>
 import NavMain from "@/components/NavMain.vue";
 import NavAbsence from "@/components/NavAbsence.vue";
-import NavRemoved from "@/components/NavRemoved.vue";
+import NavDone from "@/components/NavDone.vue";
 export default {
   name: "NavTables",
-  components: { NavMain, NavAbsence, NavRemoved },
+  components: { NavMain, NavAbsence, NavDone },
   computed: {},
   data() {
     return {
