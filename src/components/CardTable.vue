@@ -49,17 +49,22 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.table {
+  margin-left: auto;
+  margin-right: auto;
+}
 .sortable-ghost {
   background: rgba($primary, 0.4);
 }
 .handle {
-  width: 50px;
+  width: 10vw;
 }
 .cell-id {
-  width: 50px;
+  width: 10vw;
+  min-width: 80px;
 }
-.item {
-  transition: all 0.5s;
+.item:not(.sortable-drag) {
+  transition: background 0.5s;
 }
 .item-calling {
   background: rgba($warning, 0.4);
