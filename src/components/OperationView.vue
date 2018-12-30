@@ -5,11 +5,6 @@
     <button
     class="button is-rounded is-large is-success "
     style=" filter: drop-shadow(5px 5px 1px #444);"
-    @click="addNext"
-    >配布</button>
-    <button
-    class="button is-rounded is-large is-success "
-    style=" filter: drop-shadow(5px 5px 1px #444);"
     @click="$store.dispatch('callNext')"
     >進める</button>
   </div>
