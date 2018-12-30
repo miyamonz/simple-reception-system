@@ -1,6 +1,6 @@
 <template>
   <div
-    class="operation-view fix-bottom buttons is-centered"
+    class="operation-view buttons is-centered"
     >
     <button
     class="button is-rounded is-large is-success "
@@ -23,11 +23,3 @@ export default {
   }
 };
 </script>
-<style>
-.fix-bottom {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 40vw;
-}
-</style>

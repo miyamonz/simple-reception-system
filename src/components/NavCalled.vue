@@ -8,7 +8,7 @@
         不在に移動
       </button>
     </CardTable>
-    <OperationView />
+    <OperationView class="_fix-bottom" />
   </section>
 </template>
 <script>
@@ -28,3 +28,12 @@ export default {
   }
 };
 </script>
+
+<style>
+.fix-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 40vw;
+}
+</style>

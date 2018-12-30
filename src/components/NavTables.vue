@@ -1,5 +1,5 @@
 <template>
-  <b-tabs v-model="activeTab" size="is-large" type="is-boxed">
+  <b-tabs v-model="activeTab" size="is-large" type="is-toggle" expanded>
     <b-tab-item label="配布中">
       <NavCalled/>
     </b-tab-item>
@@ -35,8 +35,9 @@ export default {
 .tab-content {
   padding: 0 !important;
 }
-.tabs ul li:last-child {
-  position: absolute;
-  right: 3vw;
+.tabs {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
 }
 </style>
