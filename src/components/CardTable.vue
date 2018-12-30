@@ -9,7 +9,7 @@
           class="item"
           :class="e.id === $store.state.calling && 'item-calling'">
           <td class="handle">
-            :::
+            <b-icon icon="grip-vertical"></b-icon>
           </td>
           <td class="cell-id">
             <h3 class="title">{{ e.id }}</h3>
