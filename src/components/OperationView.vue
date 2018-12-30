@@ -5,18 +5,19 @@
     <button
     class="button is-rounded is-large is-success "
     style=" filter: drop-shadow(5px 5px 1px #444);"
-    @click="$store.dispatch('callNext')"
+    @click="callNext()"
     >進める</button>
   </div>
 </template>
 <script>
 export default {
   methods: {
-    addNext() {
-      this.$store.dispatch("addNext");
+    async callNext() {
+      await this.$store.dispatch("callNext");
+      let { calling } = this.$store.state;
       this.$toast.open({
-        message: `追加しました`,
-        duration: 1000,
+        message: `${calling}を呼び出しました`,
+        duration: 3000,
         queue: false
       });
     }
