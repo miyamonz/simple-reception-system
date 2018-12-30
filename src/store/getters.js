@@ -11,7 +11,13 @@ export default {
     if (numbers.length === 0) return 0;
     return Math.max(...numbers);
   },
-  willCalling(state) {
-    return state.cards.main.filter(c => c.id > state.calling);
+  callingIndex(state) {
+    return state.cards.main.findIndex(c => c.id === state.calling);
+  },
+  doneCalling(state, { callingIndex }) {
+    return state.cards.main.filter((c, i) => i < callingIndex);
+  },
+  willCalling(state, { callingIndex }) {
+    return state.cards.main.filter((c, i) => i > callingIndex);
   }
 };

@@ -4,7 +4,7 @@
       <div slot-scope="{id}" >
         <span class="tag is-warning is-rounded is-large" v-if="id === $store.state.calling">呼出中</span>
         <button
-          v-if="id < $store.state.calling"
+          v-if="$store.getters.doneCalling.some(c => c.id === id)"
           class="button is-primary"
           @click="toAbsence(id)">
           不在に移動
