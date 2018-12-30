@@ -31,13 +31,27 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss">
+//bug https://github.com/jgthms/bulma/issues/2171
+$navbar-height: 3.25rem;
+
+//tabのspanのheigtと、tabの中のli>aのpaddingをあわせてtabの高さになる
+//li > a のpaddingはtopとbottomで0.5em よって1emを引けばいい
+//ここでのliは特に指定がないので、親要素のis-largeになるので、$size-largeを引けば良い
+$tab-height: $size-large * 1.5 + $size-large; // span と li>a padding top,bottom
+$tab-content-height: calc(100vh - #{$navbar-height + $tab-height});
+
 .tab-content {
   padding: 0 !important;
+  height: $tab-content-height;
 }
 .tabs {
   position: fixed;
   width: 100vw;
   bottom: 0;
+}
+.tab-item {
+  width: 100%;
+  height: 100%;
 }
 </style>
