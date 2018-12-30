@@ -45,7 +45,7 @@ export default {
         return this.cards;
       },
       set(arr) {
-        this.$store.commit("setCardsToMain", arr);
+        this.$emit("update:cards", arr);
       }
     }
   },

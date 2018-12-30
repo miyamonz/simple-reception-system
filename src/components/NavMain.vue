@@ -1,6 +1,6 @@
 <template>
   <section>
-    <CardTable :cards="$store.state.cards.main" class="bottom-offset">
+    <CardTable :cards.sync="cards"  class="bottom-offset">
       <div slot-scope="{id}" >
         <span class="tag is-warning is-rounded is-large" v-if="id === $store.state.calling">呼出中</span>
         <button
@@ -20,6 +20,16 @@ import OperationView from "@/components/OperationView.vue";
 
 export default {
   components: { CardTable, OperationView },
+  computed: {
+    cards: {
+      get() {
+        return this.$store.state.cards.main;
+      },
+      set(arr) {
+        this.$store.commit("setCardsToMain", arr);
+      }
+    }
+  },
   methods: {
     toAbsence(id) {
       this.$store.dispatch("toAbsence", id);

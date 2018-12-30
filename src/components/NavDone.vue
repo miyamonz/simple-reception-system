@@ -1,5 +1,5 @@
 <template>
-  <CardTable :cards="$store.state.cards.done">
+  <CardTable :cards.sync="cards">
     <button slot-scope="{id}"
       class="button is-primary"
       @click="$store.dispatch('toRemoved', id)">
@@ -10,6 +10,16 @@
 <script>
 import CardTable from "@/components/CardTable.vue";
 export default {
-  components: { CardTable }
+  components: { CardTable },
+  computed: {
+    cards: {
+      get() {
+        return this.$store.state.cards.done;
+      },
+      set(arr) {
+        this.$store.commit("setCardsToDone", arr);
+      }
+    }
+  }
 };
 </script>

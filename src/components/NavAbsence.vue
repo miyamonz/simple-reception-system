@@ -1,5 +1,5 @@
 <template>
-  <CardTable :cards="$store.state.cards.absence">
+  <CardTable :cards.sync="cards">
   <div slot-scope="{id}" >
     <button
        class="button is-primary"
@@ -19,6 +19,16 @@
 import CardTable from "@/components/CardTable.vue";
 export default {
   components: { CardTable },
+  computed: {
+    cards: {
+      get() {
+        return this.$store.state.cards.absence;
+      },
+      set(arr) {
+        this.$store.commit("setCardsToAbsence", arr);
+      }
+    }
+  },
   methods: {
     toMain(id) {
       this.$store.dispatch("toMain", id);
