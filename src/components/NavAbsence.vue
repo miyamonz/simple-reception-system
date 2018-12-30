@@ -4,12 +4,12 @@
     <button
        class="button is-primary"
        style="float: left"
-       @click="toCalled(id)">
+       @click="toMain(id)">
       配布に戻す
     </button>
     <button
        class="button is-danger"
-       @click="toRemoved(id)">
+       @click="toDone(id)">
       <b-icon icon="trash-alt" size="is-small"></b-icon>
     </button>
   </div>
@@ -20,17 +20,17 @@ import CardTable from "@/components/CardTable.vue";
 export default {
   components: { CardTable },
   methods: {
-    toCalled(id) {
-      this.$store.dispatch("toCalled", id);
+    toMain(id) {
+      this.$store.dispatch("toMain", id);
       this.$toast.open({
         message: `${id}を配布に戻しました`,
         queue: false
       });
     },
-    toRemoved(id) {
-      this.$store.dispatch("toRemoved", id);
+    toDone(id) {
+      this.$store.dispatch("toDone", id);
       this.$toast.open({
-        message: `${id}を削除しました`,
+        message: `${id}を済にしました`,
         queue: false
       });
     }
