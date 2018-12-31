@@ -1,6 +1,8 @@
 <template>
   <div class="row">
-    <div class="cell handle"> <b-icon icon="grip-vertical"></b-icon> </div>
+    <div class="cell cell-handle">
+      <div v-if="!isCalling" class="handle"> <b-icon icon="grip-vertical"></b-icon> </div>
+    </div>
     <div class="cell cell-id"> <h3 class="title">{{ card.id }}</h3> </div>
     <div class="cell cell-slot"> <slot></slot> </div>
   </div>
@@ -10,6 +12,11 @@ export default {
   props: {
     card: {
       type: Object
+    }
+  },
+  computed: {
+    isCalling() {
+      return this.card.id === this.$store.state.calling;
     }
   }
 };
@@ -39,7 +46,7 @@ export default {
     margin-right: 5vw;
   }
 }
-.handle {
+.cell-handle {
   flex-basis: 10vw;
 }
 .cell-id {
