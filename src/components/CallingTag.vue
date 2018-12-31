@@ -22,8 +22,11 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .calling-tag {
+  display: flex;
+  align-items: center;
+  height: $card-table-height;
   transition: all 300ms;
 }
 </style>
