@@ -1,3 +1,12 @@
+const initialState = {
+  cards: {
+    main: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
+    absence: [],
+    done: []
+  },
+  calling: 0,
+  drag: false
+};
 export default {
   set(state, { number, to }) {
     const toLow = to.toLowerCase();
@@ -17,18 +26,8 @@ export default {
   },
   reset(state) {
     const { comment, waitingDataSync } = state;
-    const newState = {
-      cards: {
-        main: [],
-        absence: [],
-        done: []
-      },
-      calling: 0,
-      drag: false,
-      comment,
-      waitingDataSync
-    };
-    state = newState;
+    const newState = { ...initialState, comment, waitingDataSync };
+    Object.assign(state, newState);
   },
   setCardsToMain(state, cards) {
     state.cards.main = cards;
