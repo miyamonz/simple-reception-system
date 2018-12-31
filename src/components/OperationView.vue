@@ -5,12 +5,18 @@
          class="button is-rounded is-large is-danger is-inverted "
          style=" filter: drop-shadow(5px 5px 1px #444);"
          @click="callPrev()"
-         >戻す</button>
+         >
+          <b-icon icon="caret-up"></b-icon>
+         <span> </span>
+         戻す</button>
       <button
          class="button is-rounded is-large is-danger "
          style=" filter: drop-shadow(5px 5px 1px #444);"
          @click="callNext()"
-         >進める</button>
+         >進める
+         <span> </span>
+          <b-icon icon="caret-down"></b-icon>
+      </button>
     </div>
   </div>
 </template>
