@@ -3,8 +3,9 @@
     class="calling-tag"
     style="position: absolute;"
     :style="{top, left}">
-  <span class="tag is-danger is-large" >
-    呼出中</span>
+    <span class="triangle"></span>
+    <span class="arrow-body tag is-danger is-large">
+      呼出中</span>
   </div>
 </template>
 <script>
@@ -32,7 +33,7 @@ export default {
       if (!element) return;
       const rect = element.getBoundingClientRect();
       if (!rect) return;
-      return rect.left + "px";
+      return rect.left - 10 + "px";
     }
   },
   data() {
@@ -48,5 +49,15 @@ export default {
   align-items: center;
   height: $card-table-height;
   transition: all 300ms;
+}
+$arrow-color: $danger;
+.arrow-body {
+  height: $card-table-height * 0.8;
+  border-radius: 0;
+}
+.triangle {
+  border-top: $card-table-height * 0.6 solid transparent;
+  border-right: $card-table-height * 0.6 solid $arrow-color;
+  border-bottom: $card-table-height * 0.6 solid transparent;
 }
 </style>
