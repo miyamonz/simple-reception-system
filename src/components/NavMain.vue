@@ -1,8 +1,7 @@
 <template>
-  <section>
+  <section style="position: relative">
     <CardTable :cards.sync="cards"  class="bottom-offset">
       <div slot-scope="{id}" >
-        <span class="tag is-danger is-rounded is-large" v-if="id === $store.state.calling">呼出中</span>
         <button
           v-if="$store.getters.doneCalling.some(c => c.id === id)"
           class="button"
@@ -11,15 +10,17 @@
         </button>
       </div>
     </CardTable>
+    <CallingTag />
     <OperationView class="fix-bottom" />
   </section>
 </template>
 <script>
 import CardTable from "@/components/CardTable.vue";
+import CallingTag from "@/components/CallingTag.vue";
 import OperationView from "@/components/OperationView.vue";
 
 export default {
-  components: { CardTable, OperationView },
+  components: { CardTable, CallingTag, OperationView },
   computed: {
     cards: {
       get() {

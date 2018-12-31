@@ -1,6 +1,6 @@
 @import "~bulma/sass/utilities/_all";
 // Set your colors
-$primary: $cyan - 20;
+$primary: darken($cyan, 10%);
 $primary-invert: findColorInvert($primary);
 $twitter: #4099ff;
 $twitter-invert: findColorInvert($twitter);
@@ -34,3 +34,5 @@ $navbar-height: 3.25rem;
 $tab-height: $size-large * 1.5 + $size-large; // span と li>a padding top,bottom
 $tab-content-height: calc(100vh - #{$navbar-height + $tab-height});
 $operation-view-height: 30vw;
+
+$card-table-height: 3rem;

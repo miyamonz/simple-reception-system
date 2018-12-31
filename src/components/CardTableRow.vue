@@ -27,7 +27,7 @@ export default {
   justify-content: center;
   width: 100%;
   overflow: hidden;
-  height: 3rem;
+  height: $card-table-height;
   border-bottom: solid 1px $grey-lighter;
 
   &:not(.sortable-drag) {
