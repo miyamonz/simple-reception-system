@@ -16,8 +16,10 @@ html {
       <span class="title is-size-5">呼び出し中</span> <span class="title tag is-primary is-large is-size-5">{{state.calling}}</span>
       <span class="title is-size-6">　　〜〜したら、お入りください。</span>
       <div class=" is-size-6">
-        ご不在だった方<br>
-        {{absence.map(c => c.id).join(", ")}}
+        ご不在だった方:　{{absence.map(c => c.id).join(",　")}}
+        <br>
+        <br>
+        
       </div>
       <div class="columns">
         <div class="column">
