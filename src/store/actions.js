@@ -49,8 +49,11 @@ export default {
   },
   callPrev({ dispatch, getters, commit }) {
     const available = getters.doneCalling;
-    if (available.length === 0) return;
-    commit("setCalling", available[available.length - 1].id);
+    if (available.length === 0) {
+      commit("setCalling", 0);
+    } else {
+      commit("setCalling", available[available.length - 1].id);
+    }
     dispatch("fillCards");
   },
   callNext({ dispatch, getters, commit }) {

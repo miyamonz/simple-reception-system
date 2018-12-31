@@ -5,6 +5,8 @@
          class="button is-rounded is-large is-danger is-inverted "
          style=" filter: drop-shadow(5px 5px 1px #444);"
          @click="callPrev()"
+         v-show="!cantBack"
+         :disabled="cantBack"
          >
           <b-icon icon="caret-up"></b-icon>
          <span> </span>
@@ -22,6 +24,11 @@
 </template>
 <script>
 export default {
+  computed: {
+    cantBack() {
+      return this.$store.getters.callingIndex < 0;
+    }
+  },
   methods: {
     async callPrev() {
       await this.$store.dispatch("callPrev");
