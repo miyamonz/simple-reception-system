@@ -5,8 +5,8 @@
         <button
           v-if="$store.getters.doneCalling.some(c => c.id === id)"
           class="button"
-          @click="toAbsence(id)">
-          不在に移動
+          @click="toDone(id)">
+          <b-icon icon="trash-alt" size="is-small"></b-icon>
         </button>
       </div>
     </CardTable>
@@ -32,10 +32,10 @@ export default {
     }
   },
   methods: {
-    toAbsence(id) {
-      this.$store.dispatch("toAbsence", id);
+    toDone(id) {
+      this.$store.dispatch("toDone", id);
       this.$toast.open({
-        message: `${id}を不在にしました`,
+        message: `${id}をゴミ箱に移動しました`,
         queue: false
       });
     }

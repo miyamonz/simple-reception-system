@@ -6,18 +6,6 @@
 
     <b-tab-item>
       <template slot="header">
-        <span style="display:flex; align-items:center">
-          <span>不在</span>
-          <transition name="badge" mode="out-in">
-            <b-tag :key="absenceNum" class="badge" rounded> {{absenceNum}} </b-tag>
-          </transition>
-        </span>
-      </template>
-      <NavAbsence/>
-    </b-tab-item>
-
-    <b-tab-item>
-      <template slot="header">
           <b-icon icon="trash-alt" size="is-small"></b-icon>
       </template>
       <NavDone/>
@@ -26,11 +14,10 @@
 </template>
 <script>
 import NavMain from "@/components/NavMain.vue";
-import NavAbsence from "@/components/NavAbsence.vue";
 import NavDone from "@/components/NavDone.vue";
 export default {
   name: "NavTables",
-  components: { NavMain, NavAbsence, NavDone },
+  components: { NavMain, NavDone },
   computed: {
     absenceNum() {
       return this.$store.state.cards.absence.length;
@@ -57,16 +44,5 @@ export default {
   width: 100%;
   height: 100%;
   overflow: scroll;
-}
-
-.badge {
-  &.badge-enter {
-    background-color: $primary;
-  }
-  &.badge-enter-to {
-  }
-  &.badge-enter-active {
-    transition: background-color 3s;
-  }
 }
 </style>
