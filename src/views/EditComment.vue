@@ -55,3 +55,8 @@ export default {
   }
 };
 </script>
+<style>
+#edit-comment .textarea {
+  user-select: auto;
+}
+</style>

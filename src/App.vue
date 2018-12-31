@@ -22,4 +22,8 @@ export default {
 @import "./main.scss";
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
+
+* {
+  user-select: none;
+}
 </style>
