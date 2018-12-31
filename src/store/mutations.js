@@ -16,13 +16,19 @@ export default {
     state.cards[toLow].push({ id: number });
   },
   reset(state) {
-    state.cards = {
-      main: [],
-      absence: [],
-      done: []
+    const { comment, waitingDataSync } = state;
+    const newState = {
+      cards: {
+        main: [],
+        absence: [],
+        done: []
+      },
+      calling: 0,
+      drag: false,
+      comment,
+      waitingDataSync
     };
-    state.calling = 0;
-    state.drag = false;
+    state = newState;
   },
   setCardsToMain(state, cards) {
     state.cards.main = cards;
