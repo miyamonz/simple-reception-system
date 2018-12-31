@@ -10,7 +10,7 @@
         </button>
       </div>
     </CardTable>
-    <CallingTag v-if="!$store.state.drag" />
+    <CallingTag v-if="!$store.state.drag && $store.getters.callingIndex >= 0" />
     <OperationView class="fix-bottom" />
   </section>
 </template>
