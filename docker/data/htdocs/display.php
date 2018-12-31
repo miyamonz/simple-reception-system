@@ -4,45 +4,4 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-$end_text = '本日の診療は<font color="red">終了</font>しました<br>';
-?>
-<html> 
-  <head> 
-    <meta name="viewport" content="width=device-width">
-    <title>はまぐち皮膚科</title>
-    <style>
-    header {
-      color: red;
-    }
-    header:before, header:after {
-      color: green;
-      content: '■';
-    }
-    section {
-    padding-bottom: 15px;
-    }
-    </style>
-  </head>
-  <body text="#000000" link="blue" vlink="blue" bgcolor="#F7F7D7">
-    <div align="center">
-      <section style="color:green">
-        <font>はまぐち皮膚科</font><br>
-        <font>待合番号</font><br>
-      </section>
-      <hr>
-
-      <section style="color: maroon">
-        <header>休診日</header>
-        <font>日曜日・祝祭日</font><br>
-        <font>水曜日・土曜日午後</font><br>
-      </section>
-      <hr>
-
-      <section style="color: maroon">
-        <header>診察状況</header>
-        <?=  file_get_contents("./api/data.json" ) ?>
-      </section>
-    </div>
-    <hr>
-  </body>
-</html>
+include "./display.html";

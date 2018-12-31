@@ -1,0 +1,63 @@
+<html> 
+  <head> 
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+    <title>はまぐち皮膚科</title>
+    <style>
+html {
+  font-size: 6vh;
+    margin: 2rem;
+}
+    </style>
+  </head>
+  <body class="hero">
+    <div id="app">
+      <span class="title is-size-5">呼び出し中</span> <span class="title tag is-primary is-large is-size-5">{{state.calling}}</span>
+      <span class="title is-size-6">　　〜〜したら、お入りください。</span>
+      <div class=" is-size-6">
+        ご不在だった方<br>
+        {{absence.map(c => c.id).join(", ")}}
+      </div>
+      <div class="columns">
+        <div class="column">
+          <article class="message is-light">
+            <div class="message-header is-size-7"> <p>お知らせ</p> </div>
+            <div class="message-body"> ああああああああああああ</div>
+          </article>
+        </div>
+        <div class="column">
+          <article class="message is-light">
+            <div class="message-header is-size-7"> <p>お知らせ</p> </div>
+            <div class="message-body"> ああああああああああああ</div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const load  = () =>  {
+        const ts = Math.floor(new Date().getTime() / 1000);
+        return fetch(`./api/data.json?ts=${ts}`).then( res =>  res.json() )
+      }
+
+      const vue = new Vue({
+        el:"#app",
+        computed: {
+          callingIndex() {
+            return this.state.cards.main.findIndex( c => c.id === this.state.calling )
+          },
+          absence() {
+            return this.state.cards.main.filter( (c,i) => i < this.callingIndex )
+          }
+
+        },
+        data: {state:{}}
+      })
+
+      const loadAndSet = () => load().then( json => vue.state = {...json} )
+      loadAndSet()
+    setInterval( loadAndSet , 5000);
+    </script>
+  </body>
+</html>
