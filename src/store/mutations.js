@@ -22,6 +22,7 @@ export default {
       done: []
     };
     state.calling = 0;
+    state.drag = false;
   },
   setCardsToMain(state, cards) {
     state.cards.main = cards;
@@ -37,5 +38,8 @@ export default {
   },
   setCalling(state, num) {
     state.calling = num;
+  },
+  setDrag(state, b) {
+    state.drag = b;
   }
 };

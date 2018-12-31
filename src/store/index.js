@@ -17,6 +17,7 @@ const store = new Vuex.Store({
     },
     calling: 0,
     comment: "",
+    drag: false,
     waitingDataSync: false
   },
   mutations,

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <draggable v-if="list.length !== 0" :options="{animation:80, handle:'.handle'}" 
+    <draggable v-if="list.length !== 0" 
+      :options="{animation:80, handle:'.handle'}" 
+      @start="$store.commit('setDrag', true)"
+      @end="$store.commit('setDrag', false)"
       v-model="list" 
       >
       <transition-group tag="div">
