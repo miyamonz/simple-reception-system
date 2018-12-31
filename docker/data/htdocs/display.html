@@ -6,7 +6,7 @@
     <title>はまぐち皮膚科</title>
     <style>
 html {
-  font-size: 6vh;
+  font-size: 5.5vh;
     margin: 2rem;
 }
     </style>
@@ -14,7 +14,7 @@ html {
   <body class="hero">
     <div id="app">
       <span class="title is-size-5">呼び出し中</span> <span class="title tag is-primary is-large is-size-5">{{state.calling}}</span>
-      <span class="title is-size-6">　　〜〜したら、お入りください。</span>
+      <span class="title is-size-6">〜〜したら、お入りください。</span>
       <div class=" is-size-6">
         ご不在だった方:　{{absence.map(c => c.id).join(",　")}}
         <br>
@@ -25,7 +25,7 @@ html {
         <div class="column">
           <article class="message is-light">
             <div class="message-header is-size-7"> <p>お知らせ</p> </div>
-            <div class="message-body"> ああああああああああああ</div>
+            <div class="message-body"> {{state.comment}}</div>
           </article>
         </div>
         <div class="column">
