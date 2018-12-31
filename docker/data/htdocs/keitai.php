@@ -52,7 +52,7 @@ $end_text = '本日の診療は<font color="red">終了</font>しました<br>';
       <section style="color: maroon">
         <header>診察状況</header>
         <div id="app">
-          呼び出し中: {{state.calling}}<br>
+          呼び出し中: {{state.calling === 0 ? "お待ち下さい" : state.calling}}<br>
           コメント:{{state.comment}}
         </div>
       </section>
