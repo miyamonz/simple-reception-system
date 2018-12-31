@@ -1,6 +1,6 @@
 <template>
   <b-tabs v-model="activeTab" size="is-large" type="is-toggle" expanded>
-    <b-tab-item label="配布中">
+    <b-tab-item label="一覧">
       <NavMain/>
     </b-tab-item>
 
