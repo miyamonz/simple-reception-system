@@ -10,10 +10,12 @@
         rows="10"
         >
       </b-input>
-      <div class="buttons is-right">
+      <div class="buttons is-right"
+           style="margin-top: 1rem;"
+        >
         <button 
           v-if="!loading && isChange"
-          class="button is-primary"
+          class="button is-primary is-large"
           :class=" sending && 'is-loading'"
           :disabled="!isChange"
           @click="send"
