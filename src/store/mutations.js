@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 const initialState = {
   cards: {
     main: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
@@ -25,8 +27,9 @@ export default {
     state.cards[toLow].push({ id: number });
   },
   reset(state) {
-    const { comment, waitingDataSync } = state;
-    const newState = { ...initialState, comment, waitingDataSync };
+    const { comments, waitingDataSync } = state;
+    Object.keys(state).forEach(key => Vue.delete(state, key));
+    const newState = { ...initialState, comments, waitingDataSync };
     Object.assign(state, newState);
   },
   setCardsToMain(state, cards) {
