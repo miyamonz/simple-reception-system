@@ -2,57 +2,41 @@
   <div id="edit-comment" >
     <div class="column">
       <h2 class="title">コメントの編集</h2>
-      <b-input
-        type="textarea" 
-        v-model="comment"
-        :disabled="sending || loading"
-        :loading="sending || loading"
-        rows="10"
-        >
-      </b-input>
-      <div class="buttons is-right"
-           style="margin-top: 1rem;"
-        >
-        <button 
-          v-if="!loading && isChange"
-          class="button is-primary is-large"
-          :class=" sending && 'is-loading'"
-          :disabled="!isChange"
-          @click="send"
-          >送信</button>
-      </div>
+      <b-collapse class="panel" :open="openIndex === 1" @update:open="click(1)">
+        <div slot="trigger" class="panel-heading">
+          <strong>今日のコメント</strong>
+          <b-icon :icon="openIndex === 1 ? 'caret-down' : 'caret-up'" style="float:right" ></b-icon>
+        </div>
+        <div class="panel-block" style="display: block;">
+          <FormText/>
+        </div>
+      </b-collapse>
+      <b-collapse class="panel" :open="openIndex === 2" @update:open="click(2)">
+        <div slot="trigger" class="panel-heading">
+          <strong>常時表示</strong>
+          <b-icon :icon="openIndex === 2 ? 'caret-down' : 'caret-up'" style="float:right" ></b-icon>
+        </div>
+        <div class="panel-block" style="display: block;">
+          <FormText/>
+        </div>
+      </b-collapse>
     </div>
   </div>
 </template>
 <script>
+import FormText from "@/components/FormText.vue";
 export default {
-  mounted() {
-    this.load();
-  },
+  components: { FormText },
   methods: {
-    async load() {
-      this.loading = true;
-      await this.$store.dispatch("pull");
-      this.comment = this.$store.state.comment;
-      this.loading = false;
-    },
-    async send() {
-      this.sending = true;
-      await this.$store.dispatch("setComment", this.comment);
-      this.$toast.open("コメントを更新しました");
-      this.sending = false;
-    }
-  },
-  computed: {
-    isChange() {
-      return this.comment !== this.$store.state.comment;
+    click(i) {
+      const isClose = this.openIndex === 0;
+      const another = this.openIndex !== i;
+      this.openIndex = isClose || another ? i : 0;
     }
   },
   data() {
     return {
-      comment: "",
-      loading: false,
-      sending: false
+      openIndex: 0
     };
   }
 };
