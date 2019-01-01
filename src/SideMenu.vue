@@ -16,7 +16,8 @@ import { SideMenuContainer } from "./components";
 const links = [
   { to: "/", label: "Home" },
   { to: "/config", label: "設定" },
-  { to: "/edit-comment", label: "コメントの編集" }
+  { to: "/edit-comment", label: "コメントの編集" },
+  { to: "/accepting", label: "診療開始と終了" }
 ];
 export default {
   props: ["open"],

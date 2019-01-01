@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import EditComment from "./views/EditComment.vue";
+import Accepting from "./views/Accepting.vue";
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: "/edit-comment",
       name: "edit-comment",
       component: EditComment
+    },
+    {
+      path: "/accepting",
+      name: "accepting",
+      component: Accepting
     }
   ]
 });
