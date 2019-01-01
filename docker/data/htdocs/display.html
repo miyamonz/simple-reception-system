@@ -18,7 +18,10 @@ html {
   <body class="hero">
     <div id="app">
       <div v-if="state.calling > 0">
-      <span class="title is-size-5">呼び出し中</span> <span class="title tag is-primary is-large is-size-5">{{state.calling}}</span>
+        <span class="title is-size-5">呼び出し中</span>
+        <span class="title tag is-link is-large is-size-5">
+          <span class="is-size-3">{{state.calling}}</span>
+        </span>
       <span class="title is-size-6">〜〜したら、お入りください。</span>
       </div>
       <div v-else>
