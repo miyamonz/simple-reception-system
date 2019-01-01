@@ -32,13 +32,8 @@ const store = new Vuex.Store({
   actions
 });
 
-store.subscribeAction((action, state) => {
-  console.log(action.type, { state });
-  if (action.type !== "push" && action.type !== "pull") store.dispatch("push");
-});
-
 store.subscribe((mutation, state) => {
-  console.log(mutation.type, { state });
+  console.log("mutation", mutation.type, state);
   //remove old card
   let ut = Math.floor(new Date().getTime() / 1000);
   let period = 5;
@@ -49,6 +44,8 @@ store.subscribe((mutation, state) => {
     .forEach(c => {
       store.dispatch("toDone", c.id);
     });
+
+  store.dispatch("push");
 });
 
 export default store;

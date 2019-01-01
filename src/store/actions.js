@@ -14,9 +14,8 @@ export default {
     state.waitingDataSync = false;
   },
 
-  reset: async ({ commit, dispatch }) => {
+  reset: async ({ commit }) => {
     commit("reset");
-    await dispatch("fillCards");
   },
 
   toAbsence: async ({ commit }, number) => {
