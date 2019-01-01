@@ -1,22 +1,13 @@
 <template>
-  <SideMenuContainer
-  :open="open"
-  @close="close"
-  >
-  <div class="container ">
-    <div class="">
-    <a v-for="(row,i) in links" 
-      :key="row.to" 
-      @click="click(row.to)"
-      >
-      <div class="button is-fullwidth is-large" 
-          :class="i%2 && 'is-light'"
-        >
-      {{row.label}}
-      </div>
-    </a>
+  <SideMenuContainer :open="open" @close="close" >
+    <div class="container">
+      <a v-for="row in links" :key="row.to" 
+         @click="row.to ? jump(row.to) : null" >
+         <div class="button is-fullwidth is-large">
+           {{row.label}}
+         </div>
+      </a>
     </div>
-  </div>
   </SideMenuContainer>
 </template>
 <script>
@@ -35,7 +26,7 @@ export default {
     close() {
       this.$emit("update:open", false);
     },
-    click(to) {
+    jump(to) {
       this.$router.push(to);
       this.close();
     }
@@ -45,3 +36,8 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.container a:nth-child(even) .button {
+  background: $light;
+}
+</style>
