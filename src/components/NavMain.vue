@@ -2,12 +2,20 @@
   <section style="position: relative">
     <CardTable :cards.sync="cards"  class="bottom-offset">
       <div slot-scope="{id}" >
+        <div v-if="$store.getters.doneCalling.some(c => c.id === id)" >
+          <span v-if="getCard(id).huzai">ふざい</span>
+        <button v-else 
+          class="button"
+          @click="$store.commit('setHuzai', id)">
+          不在へ
+        </button>
+
         <button
-          v-if="$store.getters.doneCalling.some(c => c.id === id)"
           class="button"
           @click="toDone(id)">
           <b-icon icon="trash-alt" size="is-small"></b-icon>
         </button>
+        </div>
       </div>
     </CardTable>
     <CallingTag v-if="!$store.state.drag && $store.getters.callingIndex >= 0" />
@@ -32,6 +40,9 @@ export default {
     }
   },
   methods: {
+    getCard(id) {
+      return this.cards.find(c => c.id === id);
+    },
     toDone(id) {
       this.$store.dispatch("toDone", id);
       this.$toast.open({

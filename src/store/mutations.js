@@ -44,6 +44,10 @@ export default {
   setCalling(state, num) {
     state.calling = num;
   },
+  setHuzai(state, num) {
+    var unix = Math.floor(new Date().getTime() / 1000);
+    state.cards.main.find(c => c.id === num).huzai = unix;
+  },
   setAccepting(state, b) {
     state.accepting = b;
   },

@@ -35,6 +35,17 @@ const store = new Vuex.Store({
 store.subscribeAction((action, state) => {
   console.log(action.type, { state });
   if (action.type !== "push" && action.type !== "pull") store.dispatch("push");
+
+  //remove old card
+  if (action.type === "toDone" || action.type === "push") return;
+  let ut = Math.floor(new Date().getTime() / 1000);
+  let period = 5;
+
+  store.getters.doneCalling
+    .filter(c => c.huzai && c.huzai + period < ut)
+    .forEach(c => {
+      store.dispatch("toDone", c.id);
+    });
 });
 
 export default store;
