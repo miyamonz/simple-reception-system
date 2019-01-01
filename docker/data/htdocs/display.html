@@ -9,14 +9,25 @@ html {
   font-size: 5.5vh;
     margin: 2rem;
 }
+        pre {
+          padding: 0;
+            background-color: rgba(0,0,0,0)!important;
+        }
     </style>
   </head>
   <body class="hero">
     <div id="app">
+      <div v-if="state.calling > 0">
       <span class="title is-size-5">呼び出し中</span> <span class="title tag is-primary is-large is-size-5">{{state.calling}}</span>
       <span class="title is-size-6">〜〜したら、お入りください。</span>
+      </div>
+      <div v-else>
+      <span class="title is-size-5">少々お待ちください</span> 
+      </div>
       <div class=" is-size-6">
+        <span v-if="absence.length > 0">
         ご不在だった方:　{{absence.map(c => c.id).join(",　")}}
+        </span>
         <br>
         <br>
         
@@ -24,42 +35,19 @@ html {
       <div class="columns">
         <div class="column">
           <article class="message is-light">
-            <div class="message-header is-size-7"> <p>お知らせ</p> </div>
-            <div class="message-body"> {{state.comment}}</div>
+            <div class="message-header is-size-7"> <p>{{today.head}}</p> </div>
+            <div class="message-body"><pre>{{today.body}}</pre></div>
           </article>
         </div>
         <div class="column">
           <article class="message is-light">
-            <div class="message-header is-size-7"> <p>お知らせ</p> </div>
-            <div class="message-body"> ああああああああああああ</div>
+            <div class="message-header is-size-7"> <p>{{always.head}}</p> </div>
+            <div class="message-body"><pre>{{always.body}}</pre></div>
           </article>
         </div>
       </div>
     </div>
 
-    <script>
-      const load  = () =>  {
-        const ts = Math.floor(new Date().getTime() / 1000);
-        return fetch(`./api/data.json?ts=${ts}`).then( res =>  res.json() )
-      }
-
-      const vue = new Vue({
-        el:"#app",
-        computed: {
-          callingIndex() {
-            return this.state.cards.main.findIndex( c => c.id === this.state.calling )
-          },
-          absence() {
-            return this.state.cards.main.filter( (c,i) => i < this.callingIndex )
-          }
-
-        },
-        data: {state:{}}
-      })
-
-      const loadAndSet = () => load().then( json => vue.state = {...json} )
-      loadAndSet()
-    setInterval( loadAndSet , 5000);
-    </script>
+    <script src="display.js"></script>
   </body>
 </html>
