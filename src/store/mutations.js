@@ -1,14 +1,6 @@
 import Vue from "vue";
 
-const initialState = {
-  cards: {
-    main: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
-    absence: [],
-    done: []
-  },
-  calling: 0,
-  drag: false
-};
+import { initialState } from "./index.js";
 export default {
   set(state, { number, to }) {
     const toLow = to.toLowerCase();

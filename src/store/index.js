@@ -6,22 +6,25 @@ import actions from "./actions.js";
 
 Vue.use(Vuex);
 
+export const initialState = {
+  cards: {
+    main: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
+    absence: [],
+    done: []
+  },
+  calling: 0,
+  accepting: true,
+  drag: false
+};
+
 const store = new Vuex.Store({
   //外でpullしてここにいれるといいかもしれない
   state: {
-    // { id: Number }
-    cards: {
-      main: [],
-      absence: [],
-      done: []
-    },
-    calling: 0,
-    accepting: true,
+    ...initialState,
     comments: {
       today: "",
       always: ""
     },
-    drag: false,
     waitingDataSync: false
   },
   mutations,
