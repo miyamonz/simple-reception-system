@@ -39,7 +39,7 @@ export default {
   position: fixed;
   width: 100vw;
   bottom: 0;
-  z-index: 100;
+  z-index: 50;
 }
 .tab-item {
   width: 100%;
