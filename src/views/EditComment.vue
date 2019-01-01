@@ -2,24 +2,16 @@
   <div id="edit-comment" >
     <div class="column">
       <h2 class="title">コメントの編集</h2>
-      <b-collapse class="panel" :open="openIndex === 1" @update:open="click(1)">
-        <div slot="trigger" class="panel-heading">
-          <strong>今日のコメント</strong>
-          <b-icon :icon="openIndex === 1 ? 'caret-down' : 'caret-up'" style="float:right" ></b-icon>
-        </div>
-        <div class="panel-block" style="display: block;">
-          <FormText/>
-        </div>
-      </b-collapse>
-      <b-collapse class="panel" :open="openIndex === 2" @update:open="click(2)">
-        <div slot="trigger" class="panel-heading">
-          <strong>常時表示</strong>
-          <b-icon :icon="openIndex === 2 ? 'caret-down' : 'caret-up'" style="float:right" ></b-icon>
-        </div>
-        <div class="panel-block" style="display: block;">
-          <FormText/>
-        </div>
-      </b-collapse>
+      <nav class="panel">
+        <p class="panel-heading">今日のコメント</p>
+        <p class="panel-block" style="display: block"> <FormText/> </p>
+      </nav>
+      <br>
+
+      <nav class="panel">
+        <p class="panel-heading">常時表示</p>
+        <p class="panel-block" style="display: block"> <FormText/> </p>
+      </nav>
     </div>
   </div>
 </template>
