@@ -19,6 +19,11 @@ export default {
     state.cards[toLow].push({ id: number });
   },
   reset(state) {
+    //なんか挙動がおかしい
+    //おそらく、vueのデータバインディングはオブジェクトごとに__overserverみたいなのいれてやっている
+    //ここで差し替えると追跡ができなくなる
+    //keyの差集合をみるとか、やりようはある　cardのリセットだけをやるとか
+    //あとでやろう
     const { comments, waitingDataSync } = state;
     Object.keys(state).forEach(key => Vue.delete(state, key));
     const newState = { ...initialState, comments, waitingDataSync };
