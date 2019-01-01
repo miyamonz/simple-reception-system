@@ -34,8 +34,8 @@ export default {
     commit("set", { number, to: MAIN });
   },
 
-  setComment: async ({ commit }, c) => {
-    commit("setComment", c);
+  setComment: async ({ commit }, params) => {
+    commit("setComment", params);
   },
   fillCards: async ({ dispatch, getters }) => {
     let i = 0;

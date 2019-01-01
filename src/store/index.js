@@ -17,7 +17,6 @@ const store = new Vuex.Store({
     },
     calling: 0,
     accepting: true,
-    comment: "",
     comments: {
       today: "",
       always: ""

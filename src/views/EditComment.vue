@@ -4,13 +4,13 @@
       <h2 class="title">コメントの編集</h2>
       <nav class="panel">
         <p class="panel-heading">今日のコメント</p>
-        <p class="panel-block" style="display: block"> <FormText/> </p>
+        <p class="panel-block" style="display: block"> <FormText type="today"/> </p>
       </nav>
       <br>
 
       <nav class="panel">
         <p class="panel-heading">常時表示</p>
-        <p class="panel-block" style="display: block"> <FormText/> </p>
+        <p class="panel-block" style="display: block"> <FormText type="always"/> </p>
       </nav>
     </div>
   </div>

@@ -23,6 +23,12 @@
 </template>
 <script>
 export default {
+  props: {
+    type: {
+      type: String,
+      required: true
+    }
+  },
   mounted() {
     this.load();
   },
@@ -30,12 +36,15 @@ export default {
     async load() {
       this.loading = true;
       await this.$store.dispatch("pull");
-      this.comment = this.$store.state.comment;
+      this.comment = this.$store.state.comments[this.type];
       this.loading = false;
     },
     async send() {
       this.sending = true;
-      await this.$store.dispatch("setComment", this.comment);
+      await this.$store.dispatch("setComment", {
+        comment: this.comment,
+        type: this.type
+      });
       this.$toast.open("コメントを更新しました");
       this.sending = false;
     }

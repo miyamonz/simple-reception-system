@@ -38,8 +38,8 @@ export default {
   setCardsToDone(state, cards) {
     state.cards.done = cards;
   },
-  setComment(state, comment) {
-    state.comment = comment;
+  setComment(state, { comment, type }) {
+    state.comments[type] = comment;
   },
   setCalling(state, num) {
     state.calling = num;
