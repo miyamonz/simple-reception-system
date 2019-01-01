@@ -21,8 +21,8 @@ const commentSplit = text => {
           c => c.id === this.state.calling
         );
       },
-      absence() {
-        return this.state.cards.main.filter((c, i) => i < this.callingIndex);
+      huzai() {
+        return this.state.cards.main.filter(c => c.huzai);
       },
       today() {
         return commentSplit(this.state.comments.today);
