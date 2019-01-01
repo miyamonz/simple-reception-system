@@ -11,6 +11,9 @@ export default {
     if (numbers.length === 0) return 0;
     return Math.max(...numbers);
   },
+  callingCard(state) {
+    return state.cards.main.find(c => c.id === state.calling);
+  },
   callingIndex(state) {
     return state.cards.main.findIndex(c => c.id === state.calling);
   },

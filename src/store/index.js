@@ -35,14 +35,17 @@ const store = new Vuex.Store({
 store.subscribeAction((action, state) => {
   console.log(action.type, { state });
   if (action.type !== "push" && action.type !== "pull") store.dispatch("push");
+});
 
+store.subscribe((mutation, state) => {
+  console.log(mutation.type, { state });
   //remove old card
-  if (action.type === "toDone" || action.type === "push") return;
   let ut = Math.floor(new Date().getTime() / 1000);
   let period = 5;
 
   store.getters.doneCalling
-    .filter(c => c.huzai && c.huzai + period < ut)
+    .filter(c => !c.huzai)
+    .filter(c => c.called && c.called + period < ut)
     .forEach(c => {
       store.dispatch("toDone", c.id);
     });

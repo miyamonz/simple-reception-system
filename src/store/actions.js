@@ -37,6 +37,9 @@ export default {
   setComment: async ({ commit }, params) => {
     commit("setComment", params);
   },
+  setHuzai: async ({ commit }, num) => {
+    commit("setHuzai", num);
+  },
   fillCards: async ({ dispatch, getters }) => {
     let i = 0;
     let { willCalling } = getters;
@@ -56,7 +59,9 @@ export default {
     }
     dispatch("fillCards");
   },
-  callNext({ dispatch, getters, commit }) {
+  callNext({ state, dispatch, getters, commit }) {
+    commit("setCalled", state.calling);
+
     const available = getters.willCalling;
     if (available.length === 0) return;
     commit("setCalling", available[0].id);

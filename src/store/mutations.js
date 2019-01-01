@@ -1,6 +1,7 @@
 import Vue from "vue";
 
 import { initialState } from "./index.js";
+
 export default {
   set(state, { number, to }) {
     const toLow = to.toLowerCase();
@@ -44,9 +45,14 @@ export default {
   setCalling(state, num) {
     state.calling = num;
   },
+  setCalled(state, num) {
+    const now = Math.floor(new Date().getTime() / 1000);
+    const card = state.cards.main.find(c => c.id === num);
+    if (!card) return;
+    Vue.set(card, "called", now);
+  },
   setHuzai(state, num) {
-    var unix = Math.floor(new Date().getTime() / 1000);
-    state.cards.main.find(c => c.id === num).huzai = unix;
+    Vue.set(state.cards.main.find(c => c.id === num), "huzai", true);
   },
   setAccepting(state, b) {
     state.accepting = b;

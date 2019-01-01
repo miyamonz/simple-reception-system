@@ -6,7 +6,7 @@
           <span v-if="getCard(id).huzai">ふざい</span>
         <button v-else 
           class="button"
-          @click="$store.commit('setHuzai', id)">
+          @click="$store.dispatch('setHuzai', id)">
           不在へ
         </button>
 
