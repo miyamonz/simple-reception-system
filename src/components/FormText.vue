@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     isChange() {
-      return this.comment !== this.$store.state.comment;
+      return this.comment !== this.$store.state.comments[this.type];
     }
   },
   data() {
