@@ -16,7 +16,12 @@ const store = new Vuex.Store({
       done: []
     },
     calling: 0,
+    accepting: true,
     comment: "",
+    comments: {
+      today: "",
+      always: ""
+    },
     drag: false,
     waitingDataSync: false
   },

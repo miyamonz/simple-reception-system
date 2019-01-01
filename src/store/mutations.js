@@ -44,6 +44,9 @@ export default {
   setCalling(state, num) {
     state.calling = num;
   },
+  setAccepting(state, b) {
+    state.accepting = b;
+  },
   setDrag(state, b) {
     state.drag = b;
   }
