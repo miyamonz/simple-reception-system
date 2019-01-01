@@ -25,7 +25,7 @@ export default {
     toMain(id) {
       this.$store.dispatch("toMain", id);
       this.$toast.open({
-        message: `${id}を戻しました`,
+        message: `${id}を戻します`,
         queue: false
       });
     }

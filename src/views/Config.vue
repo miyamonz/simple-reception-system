@@ -23,7 +23,7 @@ export default {
       this.isModalActive = false;
       console.log("run");
       await this.$store.dispatch("reset");
-      this.$toast.open("カードを消去しました");
+      this.$toast.open("カードを消去します");
     }
   }
 };

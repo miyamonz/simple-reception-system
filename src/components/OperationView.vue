@@ -33,7 +33,7 @@ export default {
     async callPrev() {
       await this.$store.dispatch("callPrev");
       this.$toast.open({
-        message: `戻しました`,
+        message: `戻します`,
         duration: 3000,
         queue: false
       });
@@ -42,7 +42,7 @@ export default {
       await this.$store.dispatch("callNext");
       let { calling } = this.$store.state;
       this.$toast.open({
-        message: `${calling}を呼び出しました`,
+        message: `${calling}を呼び出します`,
         duration: 3000,
         queue: false
       });

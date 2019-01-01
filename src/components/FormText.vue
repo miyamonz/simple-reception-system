@@ -45,7 +45,7 @@ export default {
         comment: this.comment,
         type: this.type
       });
-      this.$toast.open("コメントを更新しました");
+      this.$toast.open("コメントを更新します");
       this.sending = false;
     }
   },
