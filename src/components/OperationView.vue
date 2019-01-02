@@ -40,12 +40,14 @@ export default {
     },
     async callNext() {
       await this.$store.dispatch("callNext");
+      /*
       let { calling } = this.$store.state;
       this.$toast.open({
         message: `${calling}を呼び出します`,
         duration: 3000,
         queue: false
       });
+      */
     }
   }
 };
