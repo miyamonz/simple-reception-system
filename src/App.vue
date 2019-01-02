@@ -26,4 +26,10 @@ export default {
 * {
   user-select: none;
 }
+html {
+  font-size: 1rem;
+  @include from(600px) {
+    font-size: 1.5rem;
+  }
+}
 </style>

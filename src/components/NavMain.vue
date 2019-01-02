@@ -7,7 +7,7 @@
         <button v-else 
           class="button"
           @click="$store.dispatch('setHuzai', id)">
-          不在へ
+          不在にする
         </button>
 
         <button
