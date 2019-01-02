@@ -66,7 +66,7 @@ export default {
     commit("setCalling", available[0].id);
     dispatch("fillCards");
   },
-  async removeOldCards({ dispatch, getters }) {
+  async registerRemoveOldCard({ commit, getters }) {
     let ut = Math.floor(new Date().getTime() / 1000);
     let period = 5;
 
@@ -74,7 +74,12 @@ export default {
       .filter(c => !c.huzai)
       .filter(c => c.called && c.called + period < ut)
       .forEach(c => {
-        dispatch("toDone", c.id);
+        commit("setWillRemove", c.id);
       });
+  },
+  async removeOldCards({ dispatch, getters }) {
+    getters.doneCalling.filter(c => c.willRemove).forEach(c => {
+      dispatch("toDone", c.id);
+    });
   }
 };

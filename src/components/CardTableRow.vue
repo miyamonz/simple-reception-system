@@ -1,7 +1,7 @@
 <template>
-  <div class="row">
+  <div class="row" :class="card.willRemove && 'has-background-grey-lighter'">
     <div class="cell cell-id"> <h3 class="title">{{ card.id }}</h3> </div>
-    <div class="cell cell-slot"> <slot></slot> </div>
+    <div class="cell cell-slot"> <slot></slot></div>
   </div>
 </template>
 <script>

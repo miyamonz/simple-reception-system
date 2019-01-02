@@ -39,7 +39,10 @@ store.subscribe((mutation, state) => {
 
 store.subscribeAction((action, state) => {
   console.log("action", action.type, state);
-  if (action.type === "callNext") store.dispatch("removeOldCards");
+  if (action.type === "callNext") {
+    store.dispatch("removeOldCards");
+    store.dispatch("registerRemoveOldCard");
+  }
 });
 
 export default store;
