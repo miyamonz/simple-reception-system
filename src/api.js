@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import { Toast } from "buefy/dist/components/toast";
-
 const debounce = (fn, ms = 500) => {
   let timer = 0;
   return param => {
@@ -16,7 +14,7 @@ const debounce = (fn, ms = 500) => {
 };
 
 const _pushState = async state => {
-  const res = await axios.post("api/", state);
+  const res = await axios.post("api/index.php", state);
   console.log(res.statusText, res.data);
   if (res.status === 200) {
     /*
