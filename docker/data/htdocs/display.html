@@ -2,23 +2,15 @@
   <head> 
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <link rel="stylesheet" href="display.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
     <title>はまぐち皮膚科</title>
-    <style>
-html {
-  font-size: 5.5vh;
-    margin: 2rem;
-}
-        pre {
-          padding: 0;
-            background-color: rgba(0,0,0,0)!important;
-        }
-    </style>
   </head>
   <body class="hero">
-    <div id="app">
-      <div v-if="state.calling > 0">
-        <span class="title is-size-5">呼び出し中</span><br>
+    <div class="my-box"></div>
+    <div id="app" style="text-align: center">
+      <div v-if="state.calling > 0" >
+        <span class="title is-size-3">呼び出し中</span><br>
         <span class="title tag is-large is-size-3" style="background: #9cdb31; color:white">
           <span class="is-size-1">{{state.calling}}</span>
         </span>
@@ -27,29 +19,32 @@ html {
       <span class="title is-size-5">少々お待ちください</span> 
       </div>
       <div class=" is-size-6">
-        <span v-if="huzai.length > 0" class="is-size-4">
-        不在:　{{huzai.map(c => c.id).join(",　")}}
+        <span v-if="huzai.length > 0" class="title is-size-5" >
+        ご不在:　{{huzai.map(c => c.id).join(",　")}}
         </span>
         <br>
         <br>
         
       </div>
-      <div class="columns" style="width: 100%;">
+      <div class="columns" style="width: 100%; margin: 0">
         <div class="column">
           <article class="message is-light">
-            <div class="message-header is-size-7"> <p>{{today.head}}</p> </div>
+            <div class="message-header"> <p>{{today.head}}</p> </div>
             <div class="message-body"><pre>{{today.body}}</pre></div>
           </article>
         </div>
         <div class="column">
           <article class="message is-light">
-            <div class="message-header is-size-7"> <p>{{always.head}}</p> </div>
+            <div class="message-header"> <p>{{always.head}}</p> </div>
             <div class="message-body"><pre>{{always.body}}</pre></div>
           </article>
         </div>
       </div>
     </div>
-
+    <figure class="image" >
+      <img src="logo.jpg" style="width: 50%; object-fit:contain">
+    </figure>
+    <div class="my-box"></div>
     <script src="display.js"></script>
   </body>
 </html>

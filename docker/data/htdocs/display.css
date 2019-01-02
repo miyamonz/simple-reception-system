@@ -1,0 +1,27 @@
+html {
+  font-size: 5.5vh;
+  margin: 1rem;
+}
+pre {
+  padding: 0;
+  background-color: rgba(0,0,0,0)!important;
+}
+body {
+  font-family: "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+}
+.my-box {
+  display: block;
+  background: #aad852;
+  height: 0.7rem;
+}
+#logo {
+  text-align:center;
+}
+figure.image {
+  display: flex;
+  justify-content: center;
+}
+.columns .message {
+  font-size: 0.5rem;
+
+}
