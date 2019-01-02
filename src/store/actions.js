@@ -65,5 +65,16 @@ export default {
     if (available.length === 0) return;
     commit("setCalling", available[0].id);
     dispatch("fillCards");
+  },
+  async removeOldCards({ dispatch, getters }) {
+    let ut = Math.floor(new Date().getTime() / 1000);
+    let period = 5;
+
+    getters.doneCalling
+      .filter(c => !c.huzai)
+      .filter(c => c.called && c.called + period < ut)
+      .forEach(c => {
+        dispatch("toDone", c.id);
+      });
   }
 };
