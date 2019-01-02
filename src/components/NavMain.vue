@@ -46,10 +46,12 @@ export default {
     },
     toDone(id) {
       this.$store.dispatch("toDone", id);
+      /*
       this.$toast.open({
         message: `${id}をゴミ箱に移動します`,
         queue: false
       });
+      */
     }
   }
 };

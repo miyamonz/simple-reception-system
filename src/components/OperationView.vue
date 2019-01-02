@@ -32,11 +32,13 @@ export default {
   methods: {
     async callPrev() {
       await this.$store.dispatch("callPrev");
+      /*
       this.$toast.open({
         message: `戻します`,
         duration: 3000,
         queue: false
       });
+      */
     },
     async callNext() {
       await this.$store.dispatch("callNext");
