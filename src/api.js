@@ -6,7 +6,12 @@ const debounce = (fn, ms = 500) => {
   let timer = 0;
   return param => {
     if (timer > 0) clearTimeout(timer);
-    timer = setTimeout(() => fn(param), ms);
+    return new Promise(res => {
+      timer = setTimeout(() => {
+        let ret = fn(param);
+        res(ret);
+      }, ms);
+    });
   };
 };
 

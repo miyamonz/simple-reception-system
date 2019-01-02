@@ -4,6 +4,8 @@
       <a class="navbar-item" >
         <h1 class="title" style="color:white;">管理者画面</h1>
       </a>
+      <span class="button is-large is-text"
+            :class="$store.state.waitingDataSync && 'is-loading'"></span>
 
       <a role="button" class="navbar-burger" @click="click" >
         <span aria-hidden="true"></span>

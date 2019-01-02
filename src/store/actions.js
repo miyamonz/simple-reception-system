@@ -10,7 +10,8 @@ export default {
   },
   push: async ({ state }) => {
     state.waitingDataSync = true;
-    await pushState(state);
+    const res = await pushState(state);
+    res;
     state.waitingDataSync = false;
   },
 
