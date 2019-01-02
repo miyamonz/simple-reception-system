@@ -51,7 +51,9 @@ export default {
     rowColor(card) {
       if (card.id === this.$store.state.calling) return "item-calling";
       if (card.huzai) return "item-huzai";
-      if (card.willRemove && !card.huzai) return "has-background-grey-lighter";
+      if (card.willRemove && !card.huzai) return "";
+      //willRemoveに色を付けるのはいったんやめ
+      ("has-background-grey-lighter");
       return "";
     }
   }
