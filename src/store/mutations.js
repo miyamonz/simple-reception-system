@@ -51,10 +51,10 @@ export default {
     if (!card) return;
     Vue.set(card, "called", now);
   },
-  setWillRemove(state, num) {
-    const card = state.cards.main.find(c => c.id === num);
+  setWillRemove(state, { id, value = true }) {
+    const card = state.cards.main.find(c => c.id === id);
     if (!card) return;
-    Vue.set(card, "willRemove", true);
+    Vue.set(card, "willRemove", value);
   },
   setHuzai(state, num) {
     Vue.set(state.cards.main.find(c => c.id === num), "huzai", true);

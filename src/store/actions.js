@@ -38,6 +38,7 @@ export default {
   },
   setHuzai: async ({ commit }, num) => {
     commit("setHuzai", num);
+    commit("setWillRemove", { id: num, value: false });
   },
   fillCards: async ({ dispatch, getters }) => {
     let i = 0;
@@ -74,11 +75,11 @@ export default {
       .filter(c => !c.huzai)
       .filter(c => c.called && c.called + period < ut)
       .forEach(c => {
-        commit("setWillRemove", c.id);
+        commit("setWillRemove", { id: c.id });
       });
   },
   async removeOldCards({ dispatch, getters }) {
-    getters.doneCalling.filter(c => c.willRemove).forEach(c => {
+    getters.doneCalling.filter(c => c.willRemove && !c.huzai).forEach(c => {
       dispatch("toDone", c.id);
     });
   }

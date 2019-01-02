@@ -11,7 +11,7 @@
           v-for="card in list"
           :key="card.id" 
           :card="card"
-          :class="card.id === $store.state.calling && 'item-calling'">
+          :class="rowColor(card)">
           <slot :id="card.id"></slot>
         </CardTableRow>
       </transition-group>
@@ -45,6 +45,13 @@ export default {
       set(arr) {
         this.$emit("update:cards", arr);
       }
+    }
+  },
+  methods: {
+    rowColor(card) {
+      if (card.id === this.$store.state.calling) return "item-calling";
+      if (card.willRemove && !card.huzai) return "has-background-grey-lighter";
+      return "";
     }
   }
 };
