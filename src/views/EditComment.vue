@@ -2,6 +2,7 @@
   <div id="edit-comment" >
     <div class="column">
       <h2 class="title">コメントの編集</h2>
+      一行目がタイトルになります<br><br>
       <nav class="panel">
         <p class="panel-heading">今日のコメント</p>
         <p class="panel-block" style="display: block"> <FormText type="today"/> </p>
