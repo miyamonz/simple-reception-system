@@ -14,6 +14,7 @@ const debounce = (fn, ms = 500) => {
 };
 
 const _pushState = async state => {
+  console.log("_pushState");
   const res = await axios.post("api/", state).catch(console.error);
   console.log(res.statusText, res.data);
   if (res.status === 200) {
