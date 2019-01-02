@@ -1,9 +1,9 @@
 <template>
   <section style="position: relative">
     <CardTable :cards.sync="cards"  class="bottom-offset">
-      <div slot-scope="{id}" >
+      <div slot-scope="{id}" style="width: 100%">
         <div v-if="$store.getters.doneCalling.some(c => c.id === id)" >
-          <span v-if="getCard(id).huzai">ふざい</span>
+          <span v-if="getCard(id).huzai" class="is-size-4" style="float: left">不在</span>
         <button v-else 
           class="button"
           @click="$store.dispatch('setHuzai', id)">
@@ -12,6 +12,7 @@
 
         <button
           class="button"
+          style="float:right"
           @click="toDone(id)">
           <b-icon icon="trash-alt" size="is-small"></b-icon>
         </button>
