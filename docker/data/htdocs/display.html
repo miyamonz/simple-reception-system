@@ -18,24 +18,23 @@ html {
   <body class="hero">
     <div id="app">
       <div v-if="state.calling > 0">
-        <span class="title is-size-5">呼び出し中</span>
-        <span class="title tag is-large is-size-5" style="background: #9cdb31; color:white">
-          <span class="is-size-3">{{state.calling}}</span>
+        <span class="title is-size-5">呼び出し中</span><br>
+        <span class="title tag is-large is-size-3" style="background: #9cdb31; color:white">
+          <span class="is-size-1">{{state.calling}}</span>
         </span>
-      <span class="title is-size-6">〜〜したら、お入りください。</span>
       </div>
       <div v-else>
       <span class="title is-size-5">少々お待ちください</span> 
       </div>
       <div class=" is-size-6">
-        <span v-if="huzai.length > 0">
-        ご不在だった方:　{{huzai.map(c => c.id).join(",　")}}
+        <span v-if="huzai.length > 0" class="is-size-4">
+        不在:　{{huzai.map(c => c.id).join(",　")}}
         </span>
         <br>
         <br>
         
       </div>
-      <div class="columns">
+      <div class="columns" style="width: 100%;">
         <div class="column">
           <article class="message is-light">
             <div class="message-header is-size-7"> <p>{{today.head}}</p> </div>
