@@ -19,10 +19,12 @@ const _pushState = async state => {
   const res = await axios.post("api/", state);
   console.log(res.statusText, res.data);
   if (res.status === 200) {
+    /*
     Toast.open({
       message: "更新しました✅",
       queue: false
     });
+    */
   }
   return res;
 };
