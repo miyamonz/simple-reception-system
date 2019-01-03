@@ -15,7 +15,9 @@ const debounce = (fn, ms = 500) => {
 
 const _pushState = async state => {
   console.log("_pushState", state);
-  const res = await axios.post("api/", state).catch(console.error);
+  const res = await axios
+    .post(process.env.VUE_APP_API_BASE_URL + "api/", state)
+    .catch(console.error);
   console.log(res.statusText, res.data);
   if (res.status === 200) {
     /*
@@ -32,5 +34,7 @@ export const pushState = debounce(_pushState);
 
 export const pullState = async () => {
   const ts = Math.floor(new Date().getTime() / 1000);
-  return axios.get(`api/?timestamp=${ts}`).then(res => res.data);
+  return axios
+    .get(process.env.VUE_APP_API_BASE_URL + `api/?timestamp=${ts}`)
+    .then(res => res.data);
 };
