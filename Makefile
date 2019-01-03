@@ -5,4 +5,4 @@ push: build
 
 build:
 	npm run build
-	cp docker/data/htdocs/*.* dist
+	cp docker/html/*.* dist

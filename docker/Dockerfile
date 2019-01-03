@@ -10,6 +10,6 @@ RUN apk --no-cache add \
 WORKDIR /app/
 
 COPY httpd.conf /app/httpd.conf
-COPY data/ /app/data/
+COPY html/ /app/html/
     
 CMD [ "/usr/sbin/httpd", "-D", "FOREGROUND", "-f", "/app/httpd.conf" ]
