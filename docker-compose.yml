@@ -7,6 +7,6 @@ services:
             - 8000:8080
         tty: true
         volumes:
-            - ./docker/data/:/app/data/
+            - ./docker/html/:/app/html/
         env_file:
             - .env
