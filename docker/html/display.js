@@ -34,7 +34,14 @@ const commentSplit = text => {
   });
 
   setInterval(async () => {
-    vue.state = await load();
+    try {
+      const state = await load();
+      vue.state = state;
+    } catch (e) {
+      console.error(e);
+      console.log("reload after 5sec");
+      setTimeout(() => location.reload(), 5000);
+    }
     console.log("updated");
   }, 1000);
 })();
