@@ -1,6 +1,12 @@
 const path = require("path");
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? process.env.BUILD_BASE_URL_PROD
+    : process.env.NODE_ENV === "test"
+      ? process.env.BUILD_BASE_URL_TEST
+      : "/";
 module.exports = {
-  baseUrl: process.env.NODE_ENV === "production" ? process.env.BUILD_BASE_URL : "/",
+  baseUrl,
   chainWebpack: config => {
     const types = ["vue-modules", "vue", "normal-modules", "normal"];
     types.forEach(type =>
