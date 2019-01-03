@@ -41,7 +41,6 @@ store.subscribeAction((action, state) => {
   console.log("action", action.type, state);
   if (action.type === "callNext") {
     store.dispatch("removeOldCards");
-    store.dispatch("registerRemoveOldCard");
   }
 });
 

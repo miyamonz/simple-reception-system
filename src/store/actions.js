@@ -70,20 +70,13 @@ export default {
     commit("setCalling", available[0].id);
     dispatch("fillCards");
   },
-  async registerRemoveOldCard({ commit, getters }) {
-    let ut = Math.floor(new Date().getTime() / 1000);
-    let period = 5;
 
+  async removeOldCards({ dispatch, getters }, till = 5) {
     getters.doneCalling
       .filter(c => !c.huzai)
-      .filter(c => c.called && c.called + period < ut)
+      .filter((_, i, arr) => i <= arr.length - till)
       .forEach(c => {
-        commit("setWillRemove", { id: c.id });
+        dispatch("toDone", c.id);
       });
-  },
-  async removeOldCards({ dispatch, getters }) {
-    getters.doneCalling.filter(c => c.willRemove && !c.huzai).forEach(c => {
-      dispatch("toDone", c.id);
-    });
   }
 };
