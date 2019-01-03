@@ -1,6 +1,5 @@
 const load = () => {
-  const ts = Math.floor(new Date().getTime() / 1000);
-  return fetch(`./api/data.json?ts=${ts}`).then(res => res.json());
+  return fetch(url).then(res => res.json());
 };
 const commentSplit = text => {
   let arr = text.split(/\r|\n|\r\n/);
