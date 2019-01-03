@@ -1,13 +1,13 @@
 
 .PHONY: push-test
 push-test: build-test
-	git ftp push -s test
 	git push hama-test master
+	git ftp push -s test
 
 .PHONY: push-prod
 push-prod: build-prod
-	git ftp push -s prod
 	git push hama-prod master
+	git ftp push -s prod
 
 
 build-test:
