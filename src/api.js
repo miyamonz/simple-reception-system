@@ -36,9 +36,5 @@ export const pushState = debounce(_pushState);
 
 export const pullState = async () => {
   const ts = Math.floor(new Date().getTime() / 1000);
-  console.log(process.env.VUE_APP_API_BASE_URL);
-  console.log(process.env.VUE_APP_API_BASE_URL_TEST);
-  console.log(process.env.VUE_APP_API_BASE_URL_PROD);
-  console.log( base);
   return axios.get(base + `api/?timestamp=${ts}`).then(res => res.data);
 };
