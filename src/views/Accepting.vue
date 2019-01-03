@@ -3,7 +3,7 @@
     <div class="column">
       <h2 class="title">診察開始と終了</h2>
       <div style="height: 4rem">
-        <span v-if="!$store.state.waitingDataSync"> {{accepting ? "診療受付中" : "受付終了"}} </span>
+        <span v-if="!$store.state.waitingDataSync"> {{accepting ? "診療受付中です" : "受付終了しています"}} </span>
         <span v-else class="button is-text is-loading is-large"></span>
       </div>
       <div>
