@@ -8,7 +8,11 @@ $file = 'data.json';
 
 if($json_string) {
   //put
-  file_put_contents($file, $json_string);
+  $ok = file_put_contents($file, $json_string);
+  if(!$ok) {
+    http_response_code( 501 ) ;
+    echo "保存できませんでした";
+  }
   return;
 } else {
   //get
