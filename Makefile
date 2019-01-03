@@ -12,8 +12,8 @@ push-prod: build-prod
 
 build-test:
 	npm run build:test
-	cp docker/html/*.* dist
+	cp docker/html/*.* dist/test
 
 build-prod:
 	npm run build:prod
-	cp docker/html/*.* dist
+	cp docker/html/*.* dist/prod
