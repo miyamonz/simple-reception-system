@@ -7,3 +7,4 @@ header("Pragma: no-cache");
 
 $url = getenv('APP_ENV') === 'development' ? './api/' : "http://os3-373-19830.vs.sakura.ne.jp:{getenv('API_PORT')}/api/";
 include "./display.html";
+echo getcwd() . "\n";
