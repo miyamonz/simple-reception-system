@@ -13,7 +13,7 @@ const debounce = (fn, ms = 500) => {
   };
 };
 const base =
-  process.env.VUE_APP_ENV === "development"
+  process.env.NODE_ENV === "development"
     ? ""
     : process.env.VUE_APP_API_BASE_URL;
 
