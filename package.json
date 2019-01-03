@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build:test": "VUE_APP_API_BASE_URL=$VUE_APP_API_BASE_URL_TEST NODE_ENV=test vue-cli-service build --dest dist/test/admin",
-    "build:prod": "VUE_APP_API_BASE_URL=$VUE_APP_API_BASE_URL_PROD               vue-cli-service build --dest dist/prod/admin",
+    "build:test": ". .env && VUE_APP_API_BASE_URL=$VUE_APP_API_BASE_URL_TEST NODE_ENV=test vue-cli-service build --dest dist/test/admin",
+    "build:prod": ". .env && VUE_APP_API_BASE_URL=$VUE_APP_API_BASE_URL_PROD               vue-cli-service build --dest dist/prod/admin",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
