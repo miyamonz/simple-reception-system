@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <NavTables />
+    <NavTables v-if="$store.state.accepting"/>
+    <div v-else>
+      受付を停止しています
+    </div>
   </div>
 </template>
 

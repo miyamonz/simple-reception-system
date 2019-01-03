@@ -12,29 +12,35 @@
   <body class="hero">
     <div class="my-box"></div>
     <div id="app" style="text-align: center">
-      <div v-if="state.calling > 0" >
-        <span class="title is-size-3">呼び出し中</span><br>
-        <span class="title tag is-large is-size-2" style="background: #9cdb31; color:white">
-          <span class="is-size-1">{{state.calling}}</span>
-        </span>
+
+      <div v-if="state.accepting">
+        <div v-if="state.calling > 0" >
+          <span class="title is-size-3">呼び出し中</span><br>
+          <span class="title tag is-large is-size-2" style="background: #9cdb31; color:white">
+            <span class="is-size-1">{{state.calling}}</span>
+          </span>
+        </div>
+        <div v-else>
+          <span class="title is-size-5">少々お待ちください</span> 
+        </div>
+        <div class=" is-size-6" style="margin-top: 0.5rem;">
+          <span v-if="huzai.length > 0" class="title is-size-5" >
+            ご不在:　{{huzai.map(c => c.id).join(",　")}}
+          </span> <br>
+
+        </div>
       </div>
       <div v-else>
-      <span class="title is-size-5">少々お待ちください</span> 
+        <span class="title is-size-3">本日は終了しました</span>
       </div>
-      <div class=" is-size-6" style="margin-top: 0.5rem;">
-        <span v-if="huzai.length > 0" class="title is-size-5" >
-        ご不在:　{{huzai.map(c => c.id).join(",　")}}
-        </span> <br>
-        
-      </div>
-      <div class="columns" style="width: 100%; margin: 0">
-        <div class="column" v-show="state.accepting">
+      <div class="columns is-centered" style="width: 100%; margin: 0">
+        <div class="column is-half" v-show="state.accepting">
           <article class="message is-light">
             <div class="message-header"> <p>{{today.head}}</p> </div>
             <div class="message-body"><pre>{{today.body}}</pre></div>
           </article>
         </div>
-        <div class="column">
+        <div class="column is-half">
           <article class="message is-light">
             <div class="message-header"> <p>{{always.head}}</p> </div>
             <div class="message-body"><pre>{{always.body}}</pre></div>
