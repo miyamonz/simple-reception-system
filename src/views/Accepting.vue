@@ -2,7 +2,7 @@
   <div id="accepting" >
     <div class="column">
       <h2 class="title">診察開始と終了</h2>
-      {{accepting}}
+      {{accepting ? "診療受付中" : "受付終了"}}
       <br>
       <div>
         <button class="button is-primary" :disabled=" accepting" @click="set(true)"> 開始する </button>
