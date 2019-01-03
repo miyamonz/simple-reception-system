@@ -2,23 +2,29 @@ import Vue from "vue";
 
 import { initialState } from "./index.js";
 
+const remove = (state, { id }) => {
+  const cardKeys = Object.keys(state.cards);
+  const existKey = cardKeys.find(key =>
+    state.cards[key].some(c => c.id === id)
+  );
+  if (existKey) {
+    state.cards[existKey] = state.cards[existKey].filter(c => c.id !== id);
+  }
+};
+const insertAfter = (state, { number, to, index }) => {
+  const toLow = to.toLowerCase();
+  const c = { id: number };
+  state.cards[toLow].splice(index, 0, c);
+};
+
 export default {
   set(state, { number, to }) {
+    remove(state, { id: number });
     const toLow = to.toLowerCase();
-
-    const cardKeys = Object.keys(state.cards);
-    const existKey = cardKeys.find(key =>
-      state.cards[key].some(c => c.id === number)
-    );
-
-    if (existKey) {
-      //remove
-      state.cards[existKey] = state.cards[existKey].filter(
-        c => c.id !== number
-      );
-    }
     state.cards[toLow].push({ id: number });
   },
+  remove,
+  insertAfter,
   reset(state) {
     //なんか挙動がおかしい
     //おそらく、vueのデータバインディングはオブジェクトごとに__overserverみたいなのいれてやっている

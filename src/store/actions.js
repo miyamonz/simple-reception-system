@@ -22,8 +22,10 @@ export default {
   toAbsence: async ({ commit }, number) => {
     commit("set", { number, to: ABSENCE });
   },
-  toMain: async ({ commit }, number) => {
-    commit("set", { number, to: MAIN });
+  toMain: async ({ state, commit }, number) => {
+    commit("remove", { id: number });
+    const index = state.cards.main.findIndex(c => c.id > number);
+    commit("insertAfter", { number, to: MAIN, index });
   },
   toDone: async ({ commit }, number) => {
     commit("set", { number, to: DONE });
