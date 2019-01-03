@@ -30,7 +30,7 @@
         
       </div>
       <div class="columns" style="width: 100%; margin: 0">
-        <div class="column">
+        <div class="column" v-show="state.accepting">
           <article class="message is-light">
             <div class="message-header"> <p>{{today.head}}</p> </div>
             <div class="message-body"><pre>{{today.body}}</pre></div>
