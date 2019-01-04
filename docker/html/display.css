@@ -37,9 +37,10 @@ figure.image {
 }
 
 pre {
-  font-size: 1.3rem;
-  word-wrap: break-word;
+  font-size: 1.0rem;
+  word-break: break-all;
   padding: 0;
+  width: 100%;
   background-color: rgba(0,0,0,0)!important;
 }
 @keyframes scroll {
