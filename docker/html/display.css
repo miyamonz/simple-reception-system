@@ -33,12 +33,9 @@ figure.image {
   animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-}
+  text-align: left;
 
-pre {
   font-size: 1.0rem;
-  word-wrap : break-word;
-  overflow-wrap : break-word;
   padding: 0;
   width: 100%;
   background-color: rgba(0,0,0,0)!important;

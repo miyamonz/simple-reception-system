@@ -16,10 +16,10 @@ const load = () => {
         return this.state.cards.main.filter(c => c.huzai);
       },
       today() {
-        return this.state.comments.today;
+        return this.state.comments.today.replace(/\r|\n|\r\n/g, "<br>");
       },
       always() {
-        return this.state.comments.always;
+        return this.state.comments.always.replace(/\r|\n|\r\n/g, "<br>");
       }
     },
     data: { state }

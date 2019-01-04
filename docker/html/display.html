@@ -37,12 +37,12 @@
       <div class="columns is-centered" style="width: 100%; margin: 0">
         <div class="column is-half" v-show="state.accepting">
           <article class="message is-light">
-            <div class="message-body"><pre>{{today}}</pre></div>
+            <div class="message-body" v-html="today"></div>
           </article>
         </div>
         <div class="column is-half">
           <article class="message is-light">
-            <div class="message-body"><pre>{{always}}</pre></div>
+            <div class="message-body" v-html="always"></div>
           </article>
         </div>
       </div>
