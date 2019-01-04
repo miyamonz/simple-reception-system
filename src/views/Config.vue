@@ -24,6 +24,8 @@ export default {
       console.log("run");
       await this.$store.dispatch("reset");
       this.$toast.open("カードを消去します");
+      await new Promise(res => setTimeout(res, 1000));
+      location.href = location.pathname;
     }
   }
 };
