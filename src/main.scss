@@ -33,6 +33,6 @@ $navbar-height: 3.25rem;
 //ここでのliは特に指定がないので、親要素のis-largeになるので、$size-largeを引けば良い
 $tab-height: $size-large * 1.5 + $size-large; // span と li>a padding top,bottom
 $tab-content-height: calc(100vh - #{$navbar-height + $tab-height});
-$operation-view-height: 30vw;
+$operation-view-height: 25vmin;
 
 $card-table-height: 3rem;
