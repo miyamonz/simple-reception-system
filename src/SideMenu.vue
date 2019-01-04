@@ -1,6 +1,6 @@
 <template>
   <SideMenuContainer :open="open" @close="close" >
-    <div class="container">
+    <div class="sidemenu-container">
       <a v-for="row in links" :key="row.to" 
          @click="row.to ? jump(row.to) : null" >
          <div class="button is-fullwidth is-large">
@@ -38,7 +38,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.container a:nth-child(even) .button {
+.sidemenu-container a:nth-child(even) .button {
   background: $light;
 }
 </style>
