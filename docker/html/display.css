@@ -21,7 +21,7 @@ figure.image {
   font-size: 0.8rem;
 }
 .message {
-  overflow: scroll;
+  overflow: hidden;
   height: 20vh;
 }
 .message * {
@@ -37,6 +37,7 @@ figure.image {
 }
 
 pre {
+  font-size: 1.5rem;
   padding: 0;
   background-color: rgba(0,0,0,0)!important;
 }
