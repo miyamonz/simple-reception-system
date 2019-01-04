@@ -2,10 +2,6 @@ html {
   font-size: 5.5vh;
   margin: 1rem;
 }
-pre {
-  padding: 0;
-  background-color: rgba(0,0,0,0)!important;
-}
 body {
   font-family: "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
 }
@@ -24,9 +20,33 @@ figure.image {
 .columns .message {
   font-size: 0.8rem;
 }
+.message {
+  overflow: scroll;
+  height: 20vh;
+}
 .message * {
   padding: 0.3rem 0.3rem !important;
+}
+.message-body {
+  border-color: rgba(0,0,0,0) !important;
 
+  animation-name: scroll;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+pre {
+  padding: 0;
+  background-color: rgba(0,0,0,0)!important;
+}
+@keyframes scroll {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
 .omachi {
   margin-bottom: 0.5rem !important;
