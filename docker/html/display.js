@@ -1,14 +1,6 @@
 const load = () => {
   return fetch(url).then(res => res.json());
 };
-const commentSplit = text => {
-  let arr = text.split(/\r|\n|\r\n/);
-  const head = arr.shift();
-  return {
-    head,
-    body: arr.join("\n")
-  };
-};
 (async () => {
   const state = await load();
 
@@ -24,10 +16,10 @@ const commentSplit = text => {
         return this.state.cards.main.filter(c => c.huzai);
       },
       today() {
-        return commentSplit(this.state.comments.today);
+        return this.state.comments.today;
       },
       always() {
-        return commentSplit(this.state.comments.always);
+        return this.state.comments.always;
       }
     },
     data: { state }
