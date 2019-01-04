@@ -14,8 +14,9 @@
     <div id="app" style="text-align: center">
 
       <div v-if="state.accepting">
+          <div class="title is-size-5 omachi"> スタッフが声をおかけしますのでお待ち下さい </div> 
         <div v-if="state.calling > 0" >
-          <span class="title is-size-3">お待たせ致しました</span><br>
+          <span class="title is-size-3">呼出中</span>
           <span class="title tag is-large is-size-2" style="background: #9cdb31; color:white">
             <span class="is-size-1">{{state.calling}}</span>
           </span>
@@ -24,8 +25,8 @@
           <span class="title is-size-5">少々お待ちください</span> 
         </div>
         <div class=" is-size-6" style="margin-top: 0.5rem;">
-          <span v-if="huzai.length > 0" class="title is-size-5" >
-            ご不在:　{{huzai.map(c => c.id).join(",　")}}
+          <span v-if="huzai.length > 0" class="title is-size-6" >
+            順番が過ぎている方:　{{huzai.map(c => c.id).join(",　")}}
           </span> <br>
 
         </div>
