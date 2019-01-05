@@ -7,7 +7,7 @@ header("Pragma: no-cache");
 
 $folder = basename(getcwd());
 $port = $folder === 'test-2019' ? 8000 : 8080;
-$url = getenv('APP_ENV') === 'development' ? './api/' : "http://os3-373-19830.vs.sakura.ne.jp:${port}/api/";
+$url = getenv('APP_ENV') === 'development' ? "./api/data.json" : "http://os3-373-19830.vs.sakura.ne.jp:${port}/api/";
 
 $state = json_decode(file_get_contents($url));
 $accepting = $state->accepting;
