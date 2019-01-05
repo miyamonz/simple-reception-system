@@ -1,7 +1,7 @@
 <template>
   <div class="config column">
     <h2 class="title">設定</h2>
-    <button class="button is-primary" @click="click">
+    <button class="button is-danger" @click="click">
       カードの消去
     </button>
   </div>

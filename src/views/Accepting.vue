@@ -7,12 +7,16 @@
         <span v-else class="button is-text is-loading is-large"></span>
       </div>
       <div>
-        <button class="button is-primary" :disabled=" accepting" @click="set(true)"> 開始する </button>
+        <button class="button is-primary is-large" :disabled=" accepting" @click="set(true)"> 開始する </button>
         <br>
         <br>
-        <br>
-        <br>
-        <button class="button is-primary" :disabled="!accepting" @click="set(false)"> 停止する </button>
+        <button class="button is-primary is-large" :disabled="!accepting" @click="set(false)"> 停止する </button>
+
+        <p>
+        <button v-if="!accepting && !$store.state.waitingDataSync" class="button is-danger" @click="confirmDeleteCards" style="float: right">
+          カードの消去
+        </button>
+        </p>
       </div>
     </div>
   </div>
@@ -27,6 +31,24 @@ export default {
   methods: {
     set(b) {
       this.$store.commit("setAccepting", b);
+    },
+    confirmDeleteCards() {
+      this.$dialog.confirm({
+        title: "カードの消去",
+        message: "本当に消去しますか？",
+        cancelText: "キャンセル",
+        confirmText: "消去する",
+        type: "is-danger",
+        onConfirm: this.run
+      });
+    },
+    async run() {
+      this.isModalActive = false;
+      console.log("run");
+      await this.$store.dispatch("reset");
+      this.$toast.open("カードを消去します");
+      await new Promise(res => setTimeout(res, 1000));
+      location.href = location.pathname;
     }
   }
 };
