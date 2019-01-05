@@ -13,8 +13,8 @@ $state = json_decode(file_get_contents($url));
 $accepting = $state->accepting;
 $call_num = $state->calling;
 
-$today = $state->comments->today;
-$always = $state->comments->always;
+$today  = str_replace("\n","<br>",$state->comments->today);
+$always = str_replace("\n","<br>",$state->comments->always);
 
 $joukyou = "";
 $comment = "";
