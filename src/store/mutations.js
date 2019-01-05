@@ -31,9 +31,9 @@ export default {
     //ここで差し替えると追跡ができなくなる
     //keyの差集合をみるとか、やりようはある cardのリセットだけをやるとか
     //あとでやろう
-    const { comments, waitingDataSync } = state;
+    const { comments, accepting, waitingDataSync } = state;
     Object.keys(state).forEach(key => Vue.delete(state, key));
-    const newState = { ...initialState, comments, waitingDataSync };
+    const newState = { ...initialState, comments, accepting, waitingDataSync };
     Object.assign(state, newState);
   },
   setCardsToMain(state, cards) {
