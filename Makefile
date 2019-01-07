@@ -20,6 +20,7 @@ copy-ht-prod:
 
 
 build:
+	rm -r dist
 	npm run build:${SCOPE}
 	cp docker/html/*.* dist/${SCOPE}
 	make copy-ht
