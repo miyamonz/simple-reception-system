@@ -1,4 +1,3 @@
-
 .PHONY: push-test
 push-test: build-test
 	git push hama-test master
@@ -9,11 +8,22 @@ push-prod: build-prod
 	git push hama-prod master
 	git ftp push -s prod
 
+copy-ht:
+	export $$(cat template/.env | grep -v "^#" | xargs ); cat template/.htaccess | mo > "dist/${SCOPE}/admin/.htaccess"
+	cp template/.htpasswd "dist/${SCOPE}/admin/"
+copy-ht-test:
+	SCOPE=test make copy-ht
+copy-ht-prod:
+	SCOPE=prod make copy-ht
+
+
+build:
+	npm run build:${SCOPE}
+	cp docker/html/*.* dist/${SCOPE}
+	make copy-ht
 
 build-test:
-	npm run build:test
-	cp docker/html/*.* dist/test
+	SCOPE=test make build
 
 build-prod:
-	npm run build:prod
-	cp docker/html/*.* dist/prod
+	SCOPE=prod make build
