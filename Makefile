@@ -13,6 +13,7 @@ copy-ht:
 	cp template/.htpasswd "dist/${SCOPE}/admin/"
 	chmod 604 "dist/${SCOPE}/admin/.htaccess"
 	chmod 604 "dist/${SCOPE}/admin/.htpasswd"
+	cp template/path.php "dist/${SCOPE}/"
 copy-ht-test:
 	SCOPE=test make copy-ht
 copy-ht-prod:
