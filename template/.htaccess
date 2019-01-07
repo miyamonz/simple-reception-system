@@ -2,7 +2,7 @@
 deny from all
 </Files>
 Options -Indexes
-AuthUserFile {{SERVER_ABSOLUTE_PATH}}{{SCOPE}}/admin/.htpasswd
+AuthUserFile {{SERVER_ABSOLUTE_PATH}}{{SCOPE}}-2019/admin/.htpasswd
 AuthGroupFile /dev/null
 AuthName "Please enter your ID and password"
 AuthType Basic
