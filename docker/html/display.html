@@ -12,8 +12,9 @@
   <body class="hero">
     <div class="my-box"></div>
     <div id="app" style="text-align: center">
+      <span v-if="false">少々お待ちください</span>
 
-      <div v-if="state.accepting">
+      <div class="hide" :class="'show'" v-if="state.accepting">
           <div class="title is-size-5 omachi"> スタッフが声をおかけしますのでお待ち下さい </div> 
         <div v-if="state.calling > 0" >
           <span class="title is-size-3">呼出中</span>
@@ -28,7 +29,7 @@
 
         </div>
       </div>
-      <div v-else>
+      <div class="hide" :class="'show'" v-else>
         <span class="title is-size-3">本日は終了しました</span>
       </div>
       <div class="columns is-centered" style="width: 100%; margin: 0">

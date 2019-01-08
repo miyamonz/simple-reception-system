@@ -51,3 +51,12 @@ figure.image {
 .omachi {
   margin-bottom: 0.5rem !important;
 }
+
+
+
+.hide {
+  visibility:hidden;
+}
+.show {
+  visibility:visible;
+}

@@ -35,5 +35,5 @@ const load = () => {
       setTimeout(() => location.reload(), 5000);
     }
     console.log("updated");
-  }, 1000);
+  }, 2000);
 })();
