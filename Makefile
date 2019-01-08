@@ -9,7 +9,7 @@ push-prod: build-prod
 	git ftp push -s prod
 
 copy-ht:
-	export $$(cat template/.env | grep -v "^#" | xargs ); cat template/.htaccess | mo > "dist/${SCOPE}/admin/.htaccess"
+	export $$(cat template/.env | grep -v "^#" | xargs ) ; cat template/.htaccess | mo > "dist/${SCOPE}/admin/.htaccess"
 	cp template/.htpasswd "dist/${SCOPE}/admin/"
 	chmod 604 "dist/${SCOPE}/admin/.htaccess"
 	chmod 604 "dist/${SCOPE}/admin/.htpasswd"
@@ -23,7 +23,7 @@ build:
 	[ ! -e dist ] || rm -r dist
 	npm run build:${SCOPE}
 	cp docker/html/*.* dist/${SCOPE}
-	make copy-ht
+	SCOPE2=$$( [ ${SCOPE} = "test" ] && echo "test" || echo "system" ) make copy-ht
 
 build-test:
 	SCOPE=test make build
