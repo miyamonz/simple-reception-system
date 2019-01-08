@@ -19,7 +19,12 @@ $always = str_replace("\n","<br>",$state->comments->always);
 $joukyou = "";
 $comment = "";
 if($accepting){
-  $joukyou .= "<span style='font-weight: bold; font-size:30px'>{$call_num}番</span>を呼び出し中です。<br> "; 
+  if($call_num > 0) {
+    $joukyou .= "<span style='font-weight: bold; font-size:30px'>{$call_num}番</span>を呼び出し中です。<br> "; 
+
+  }else {
+    $joukyou .= "受付開始までお待ち下さい<br> "; 
+  }
   $comment .= "<p>${today}</p>";
 }
 else  {
