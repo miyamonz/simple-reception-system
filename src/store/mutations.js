@@ -32,6 +32,7 @@ export default {
     //keyの差集合をみるとか、やりようはある cardのリセットだけをやるとか
     //あとでやろう
     const { comments, accepting, waitingDataSync } = state;
+    comments.today = "";
     Object.keys(state).forEach(key => Vue.delete(state, key));
     const newState = { ...initialState, comments, accepting, waitingDataSync };
     Object.assign(state, newState);

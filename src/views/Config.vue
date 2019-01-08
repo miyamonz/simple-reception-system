@@ -12,7 +12,7 @@ export default {
     click() {
       this.$dialog.confirm({
         title: "カードの消去",
-        message: "本当に消去しますか？",
+        message: "カードと今日のコメントを消去します\n本当に消去しますか？",
         cancelText: "キャンセル",
         confirmText: "消去する",
         type: "is-danger",
